@@ -12,20 +12,6 @@
     </script>
 <![endif]-->
 	<style>
-  .hello{
-    
-    position: absolute;
-    right: 10px;
-    top:10px;
-    text-align: right;
-      }
-
-  header{
-  height: 400px;
-  background: url('http://images.apple.com/support/assets/images/home/2015/us_en_hero_1440.jpg') no-repeat scroll center;
-  position: relative;
-}
-
 table{
   margin-top: 30px;
 }
@@ -51,6 +37,30 @@ button>a{
     color: #333333;
     font: 16px 'Open Sans';
  
+}
+
+.post{
+  width: 800px;
+  margin: 0 auto;
+}
+
+.post>p{
+    text-align: left;
+}
+
+.post>h2{
+    background:#FFE100;
+  height: 30px;
+  line-height: 30px;
+}
+
+form{
+  width: 800px;
+  margin: 50px auto;
+}
+
+form>input[type=submit]{
+  width: 100px;
 }
 </style>
 </head>
@@ -104,14 +114,28 @@ $ligne = count($result);
 
 <?php for ($i=0; $i <count($result) ; $i++){ ?>
 
-<tr>
-<td>
+<div class="post" >
 <h2><?= $result[$i]['title'] ?></h2>
-</td></br>
-<td>
+
 <p><?= $result[$i]['description'] ?></p>
-</td>
-</tr>
+</div>
+
+<div class="message">
+  
+  <p></p>
+</div>
+
+<form action="message.php" method="post">
+  
+<textarea name="message" id="message" cols="30" rows="10"></textarea>
+<input type="submit">
+
+
+</form>
+
+
+
+
 <?php 
 }?>
 </tbody>

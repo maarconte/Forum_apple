@@ -5,6 +5,20 @@ body{
 }
 
 
+ .hello{
+    
+    position: absolute;
+    right: 10px;
+    top:10px;
+    text-align: right;
+      }
+
+  header{
+  height: 400px;
+  background: url('http://images.apple.com/support/assets/images/home/2015/us_en_hero_1440.jpg') no-repeat scroll center;
+  background-size: 100%;
+  position: relative;
+}
 
 
 
