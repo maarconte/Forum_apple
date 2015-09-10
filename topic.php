@@ -32,7 +32,10 @@ button{
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
+span{
+  display: block;
+   float: left;
+}
 button>a{
     color: #333333;
     font: 16px 'Open Sans';
@@ -41,17 +44,22 @@ button>a{
 
 .post{
   width: 800px;
-  margin: 0 auto;
+  margin: 0 auto 30px;
+  padding: 5px;
 }
-
+.post:nth-child(odd){
+  background: #F1F1F1;
+}
 .post>p{
     text-align: left;
+
 }
 
 .post>h2{
     background:#FFE100;
   height: 30px;
   line-height: 30px;
+  margin: 0;
 }
 
 form{
@@ -122,7 +130,29 @@ $ligne = count($result);
 
 <div class="message">
   
-  <p></p>
+  <?php
+
+
+
+  $request = $pdo->query( 'SELECT * FROM messages' );
+  $result = $request->fetchAll();
+  $ligne=count($result);
+
+for ($i=0; $i<$ligne;$i++){ ?>
+
+<div class="post"><p> <?php  $request2 = $pdo->query( 'SELECT * FROM users WHERE id="' .$result[$i]['creatorId']. '"' );
+  $result2 = $request2->fetchAll();
+  echo $result2[0]['pseudo'].": ".$result[$i]['message']; ?></p>
+
+
+
+
+</div>
+
+
+<?php }
+  ?>
+
 </div>
 
 <form action="message.php?id=<?=$result[$i]['id']?>" method="post">
