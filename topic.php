@@ -125,7 +125,7 @@ $ligne = count($result);
   <p></p>
 </div>
 
-<form action="message.php" method="post">
+<form action="message.php?id=<?=$result[$i]['id']?>" method="post">
   
 <textarea name="message" id="message" cols="30" rows="10"></textarea>
 <input type="submit">

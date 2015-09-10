@@ -17,9 +17,11 @@ if ( empty($_SESSION['users']) ) {
 	die();
 }
 
-$request= $pdo->query('INSERT INTO  messages ( creation,creatorId,topicId,message ) VALUES (NOW(), "'.$_SESSION['users']['id'].'","'.NULL.'","'.$_POST['message'].'";');
+$sql = 'INSERT INTO  messages ( creation,creatorId,topicId,message ) VALUES (NOW(), "'.$_SESSION['users']['id'].'","'. $_GET["id"].'","'.$_POST['message'].'";';
+	
+	die($sql);
+$request= $pdo->query($sql);
 
-$result=$request->fetchAll();
 header('Location: topic.php');
 
 // print_r($result);
