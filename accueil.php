@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-		<link rel="stylesheet" type="text/css" href="css/normalize.css">
-		<link rel="stylesheet" type="text/css" href="css/connect.css">
+  <meta charset="UTF-8">
+  <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/connect.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="font-awesome-4.3.0/css/font-awesome.css">
-	<!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="font-awesome-4.3.0/css/font-awesome.css">
+  <!--[if IE]>
     <script type="text/javascript" src="js/modernizr.custom.78869.js">
     </script>
 <![endif]-->
-	<style>
+  <style>
   .hello{
     
     position: absolute;
@@ -30,6 +30,10 @@ table{
   margin-top: 30px;
 }
 
+tr{
+  background:#FFE100;
+}
+
 h1{
   line-height: 300px;
   color: #333333;
@@ -37,7 +41,7 @@ h1{
 
 button{
   border: none;
-  background: transparent;
+  background: rgba(255,255,255,0.5);
   border: solid 1px #333333;
   height: 30px;
   width: 90px;
@@ -45,9 +49,10 @@ button{
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+
 }
 
-button>a{
+a>button{
     color: #333333;
     font: 16px 'Open Sans';
  
@@ -63,15 +68,14 @@ button>a{
 session_start();
 
 if ( empty($_SESSION['users']) ) {
-	header('Location: connection.html');
-	die();
+  header('Location: connection.html');
+  die();
 }
 
 echo "Bonjour " . $_SESSION['users']['pseudo']."  ";
-?><button><a href="logout.php"><i class="fa fa-sign-out"></i> Log out
-</a></button></div>	
+?><a href="logout.php"><button><i class="fa fa-sign-out"></i> Log out</button></a></div>  
 
-   <a href="accueuil.php"><h1>Forum</h1></a>
+   <a href="accueil.php"><h1>Forum</h1></a>
 
  
 </header>
@@ -100,6 +104,10 @@ $ligne=count($result);
 
 
  ?>
+
+
+<a href="formulaire_topic.php"><h2>Nouveau topic <i class="fa fa-plus"></i></h2></a>
+
 <table>
 
 <theader>
@@ -112,10 +120,10 @@ $ligne=count($result);
 <?php for ($i=0; $i<$ligne;$i++){ ?>
 <tbody>
   <tr>
-    <td><a href="#"><?=$result[$i]['title']?></a></td>
+    <td><a href="topic.php?id=<?=$result[$i]['id']?>"><?=$result[$i]['title']?></a></td>
      <td> <a href="#"><?php 
 
-   $request2 = $pdo->query( 'SELECT * FROM users WHERE id="' .$result[$i]['creatorId']. '"' );
+  $request2 = $pdo->query( 'SELECT * FROM users WHERE id="' .$result[$i]['creatorId']. '"' );
   $result2 = $request2->fetchAll();
   echo $result2[0]['pseudo'];
 ?></a></td>

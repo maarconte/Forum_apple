@@ -70,7 +70,11 @@ input[type="password"]:focus,input[type="email"]:focus,input[type="text"]:focus{
 
 }
 
-a,.connect{
+a{
+	color: #333333;
+}
+
+a>.connect{
 	color: #498BF4;
 	font-family: Arial,sans-serif;
 	font-size: 14px;

@@ -71,7 +71,7 @@ echo "Bonjour " . $_SESSION['users']['pseudo']."  ";
 ?><button><a href="logout.php"><i class="fa fa-sign-out"></i> Log out
 </a></button></div>	
 
-   <a href="accueuil.php"><h1>Forum</h1></a>
+    <a href="accueil.php"><h1>Forum</h1></a>
 
  
 </header>
@@ -82,42 +82,39 @@ echo "Bonjour " . $_SESSION['users']['pseudo']."  ";
   <a href="connection.html">Connexion</a></br>
 </div>
 
-<table>
-
-<?php 
-
-$dsn = 'mysql:host=localhost;dbname=forumlepoles';
+<?php
+$dsn='mysql:host=localhost;dbname=forumlepoles';
 $user = 'root';
-$pass = '';
+$pass ='';
 
 $pdo = new PDO(
-  $dsn,
-  $user,
-  $pass
+$dsn,
+$user,
+$pass 
 );
 
-$request = $pdo->query( 'SELECT * FROM topics' );
-$result = $request->fetchAll();
-$ligne=count($result);
+$request=$pdo->query('SELECT * FROM topics WHERE id= '. $_GET["id"].';
+');
 
+$result=$request->fetchAll();
+$ligne = count($result);
+// print_r($result);
+// die();
+?>
 
-for ($i=0; $i<$ligne;$i++){ ?>
-<tbody>
-  <tr>
-    <td><a href="#"><?=$result[$i]['title']?></a></td>
-     <td> <a href="#"><?php 
+<?php for ($i=0; $i <count($result) ; $i++){ ?>
 
-  $request2 = $pdo->query( 'SELECT * FROM users WHERE id="' .$result[$i]['creatorId']. '"' );
-  $result2 = $request2->fetchAll();
-  echo $result2[0]['pseudo'];
-?></a></td>
-
-
-
-   <td> <a href="#"><?=$result[$i]['creation']?></a></td>
-  </tr>
-</tbody>  <?php }
-    ?>
+<tr>
+<td>
+<h2><?= $result[$i]['title'] ?></h2>
+</td></br>
+<td>
+<p><?= $result[$i]['description'] ?></p>
+</td>
+</tr>
+<?php 
+}?>
+</tbody>
 </table>
 
 </body>

@@ -83,7 +83,7 @@ echo "Bonjour " . $_SESSION['users']['pseudo']."  ";
 ?><a href="logout.php"><button><i class="fa fa-sign-out"></i> Log out
 </button></a></div>	
 
-   <a href="accueuil.php"><h1>Forum</h1></a>
+     <a href="accueil.php"><h1>Forum</h1></a>
 
  
 </header>
@@ -95,9 +95,9 @@ echo "Bonjour " . $_SESSION['users']['pseudo']."  ";
 </div>
 <div class="container" >
 <h2>Topic</h2>
-<form action="creation_topic.php" method="post" >
+<form action="insert_topic.php" method="post" >
 	<input type="text" placeholder="Titre" name="title" >
-	<textarea placeholder="Texte"></textarea>
+	<textarea placeholder="Texte" name="description"></textarea>
 	<input type="submit">
 </form>
 </div>
