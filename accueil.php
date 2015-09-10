@@ -23,15 +23,37 @@
   header{
   height: 400px;
   background: url('http://images.apple.com/support/assets/images/home/2015/us_en_hero_1440.jpg') no-repeat scroll center;
+  background-size: 100%;
   position: relative;
 }
 
 table{
   margin-top: 30px;
+  width: 800px;
 }
 
-tr{
+table,thead,tr,td{
+    border: none;
+}
+
+tbody>tr:nth-child(odd){
+  background: #F1F1F1;
+}
+
+
+thead{
   background:#FFE100;
+  height: 30px;
+  line-height: 30px;
+
+}
+
+tr>td.date{
+  width: 100px;
+}
+
+tr>td.topic{
+  width: 350px;
 }
 
 h1{
@@ -56,6 +78,9 @@ a>button{
     color: #333333;
     font: 16px 'Open Sans';
  
+}
+td{
+  width: 100px;
 }
 </style>
 </head>
@@ -110,17 +135,18 @@ $ligne=count($result);
 
 <table>
 
-<theader>
+<thead>
   <tr>
     <td>Topics</td>
     <td>Auteurs</td>
-    <td>Dates</td>
+    <td >Dates</td>
   </tr>
-</theader>
-<?php for ($i=0; $i<$ligne;$i++){ ?>
+</thead>
 <tbody>
+<?php for ($i=0; $i<$ligne;$i++){ ?>
+
   <tr>
-    <td><a href="topic.php?id=<?=$result[$i]['id']?>"><?=$result[$i]['title']?></a></td>
+    <td class="topic"><a href="topic.php?id=<?=$result[$i]['id']?>"><?=$result[$i]['title']?></a></td>
      <td> <a href="#"><?php 
 
   $request2 = $pdo->query( 'SELECT * FROM users WHERE id="' .$result[$i]['creatorId']. '"' );
@@ -130,10 +156,11 @@ $ligne=count($result);
 
 
 
-   <td> <a href="#"><?=$result[$i]['creation']?></a></td>
+   <td class="date"> <a href="#"><?=$result[$i]['creation']?></a></td>
   </tr>
-</tbody>  <?php }
+  <?php }
     ?>
+</tbody>
 </table>
 
 </body>
