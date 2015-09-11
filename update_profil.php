@@ -42,7 +42,13 @@ include('includes/db.php');
 			<img src="images/user.png" alt="user">
 		</div>	
 <form action="profil.php?id=<?=$_GET['id']?>" method="post">
+<?php 
 
+$request= $pdo->query('SELECT*FROM users WHERE id="'.$_GET['id'].'" ');
+$result=$request->fetchAll();
+$ligne=count($result);
+
+ ?>
 <input type="email" name="email" value="<?=$result['0']['email']?>"  />
 <input type="text" name="pseudo" value="<?=$result['0']['pseudo']?>" />
 
