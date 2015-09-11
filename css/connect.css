@@ -32,10 +32,9 @@ a {
 .nav {
     background: transparent -moz-linear-gradient(center top, #FFEA00 0%, #FFD600 100%) repeat scroll 0% 0%;
     width: 150px;
-    top: 0;
     position: absolute;
     left: 0;
-    top: 76px;
+    bottom: 10px;
     padding: 10px;
     font-size: 13px;
     -webkit-box-sizing: border-box;
