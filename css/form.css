@@ -67,3 +67,14 @@ input[type="submit"]{
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4d90fe), color-stop(100%,#4787ed)); /* Chrome,Safari4+ */
 
 }
+button {
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+    border: solid 1px #333333;
+    height: 30px;
+    width: 90px;
+    padding: 3px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
