@@ -16,7 +16,7 @@
    <body>
       <header>
          <div class="hello"><?php
-            session_start();
+include('includes/db.php');
             
             if ( empty($_SESSION['users']) ) {
               header('Location: connection.html');
@@ -35,7 +35,6 @@
          <a href="connection.html">Connexion</a></br>
       </div>
       <?php 
-include('includes/db.php');
 
          $request = $pdo->query( 'SELECT * FROM topics ORDER BY creation DESC;' );
          $result = $request->fetchAll();
