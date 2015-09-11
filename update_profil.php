@@ -49,8 +49,8 @@ $result=$request->fetchAll();
 $ligne=count($result);
 
  ?>
-<input type="email" name="email" value="<?=$result['0']['email']?>"  />
-<input type="text" name="pseudo" value="<?=$result['0']['pseudo']?>" />
+<input type="email" name="email" value="<?=$result[0]['email']?>"  />
+<input type="text" name="pseudo" value="<?=$result[0]['pseudo']?>" />
 
 <input type="submit" />
 
