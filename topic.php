@@ -42,7 +42,7 @@ echo "Bonjour " . $_SESSION['users']['pseudo']."  ";
   <a href="connection.html">Connexion</a></br>
 </div>
 
-
+<?php
 
 $request=$pdo->query('SELECT * FROM topics WHERE id= '. $_GET["id"].';
 ');
@@ -51,9 +51,9 @@ $result=$request->fetchAll();
 $ligne = count($result);
 // print_r($result);
 // die();
-?>
 
-<?php for ($i=0; $i <count($result) ; $i++){ ?>
+
+ for ($i=0; $i <count($result) ; $i++){ ?>
 
 <div class="post" >
 <h2><?php $request2 = $pdo->query( 'SELECT * FROM users WHERE id="' .$result[$i]['creatorId']. '"' );

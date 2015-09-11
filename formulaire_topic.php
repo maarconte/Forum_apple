@@ -5,66 +5,13 @@
 	<title>Création de Topic</title>
 		<link rel="stylesheet" type="text/css" href="css/normalize.css">
 		<link rel="stylesheet" type="text/css" href="css/connect.css">
+    <link rel="stylesheet" type="text/css" href="css/form-topic.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="font-awesome-4.3.0/css/font-awesome.css">
 	<!--[if IE]>
     <script type="text/javascript" src="js/modernizr.custom.78869.js">
     </script>
 <![endif]-->
-
-<style>
-  .hello{
-    
-    position: absolute;
-    right: 10px;
-    top:10px;
-    text-align: right;
-      }
-
-  header{
-  height: 400px;
-  background: url('http://images.apple.com/support/assets/images/home/2015/us_en_hero_1440.jpg') no-repeat scroll center;
-  position: relative;
-}
-
-table{
-  margin-top: 30px;
-}
-
-h1{
-  line-height: 300px;
-  color: #333333;
-}
-
-button{
-  border: none;
-  background: transparent;
-  border: solid 1px #333333;
-  height: 30px;
-  width: 90px;
-  padding: 3px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-button>a{
-    color: #333333;
-    font: 16px 'Open Sans';
- 
-}
-.container{
-width: 800px;
-margin: 10px auto 30px;
-background: none;
-background-color: #F7F7F7;
-
-
-}
-form,h2{
-	margin-top: 0px;
-}
-</style>
 
 </head>
 <body>

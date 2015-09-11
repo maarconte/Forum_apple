@@ -55,5 +55,36 @@ form{
 }
 
 form>input[type=submit]{
+  line-height: 25px;
+  padding: 5px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 2px;
+  border: none;
+  color: #555;
+  background-color: #498BF4;
+  background: #4d90fe; /* Old browsers */
+  background: -moz-linear-gradient(top, #ffea00 0%, #ffd600 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4d90fe), color-stop(100%,#4787ed)); /* Chrome,Safari4+ */
+
   width: 100px;
+}
+
+
+  input[type="text"],textarea,select{
+  margin-bottom: 5px;
+  padding: 5px;
+  font:16px 'Open Sans';
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; 
+  width: 100%;
+  border:solid 1px #ccc;
+}
+
+
+thead {
+    background: #FFE100;
+    height: 30px;
+    line-height: 30px;
 }
