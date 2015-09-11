@@ -78,7 +78,7 @@ a>h2{
 
 <div class="hello"><?php
 
-include('includes/db.php');session_start();
+include('includes/db.php');
 
 if ( empty($_SESSION['users']) ) {
 	header('Location: connection.html');
