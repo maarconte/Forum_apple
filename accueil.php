@@ -28,8 +28,11 @@ include('includes/db.php');
          <a href="accueil.php">
             <h1>Forum</h1>
          </a>
+
+
    <div class="nav">
          <a href="liste.php">Liste des membres</a>
+         <a href="update_profil.php?id=<?=$_SESSION['users']['id']?>">Modifier Profil</a>
    </div>
       </header>
 

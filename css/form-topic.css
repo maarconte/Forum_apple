@@ -1,5 +1,5 @@
 
-	input[type="text"],textarea,select{
+	input[type="text"],input[type='email'],textarea,select{
 	margin-bottom: 5px;
 	padding: 5px;
 	font:16px 'Open Sans';
@@ -21,7 +21,7 @@ input[type="text"]:focus{
 input[type="submit"]{
 	line-height: 25px;
 	padding: 5px;
-	width: 100%;
+	width: 100px;
 	text-align: center;
 	font-size: 14px;
 	border-radius: 2px;
@@ -51,3 +51,10 @@ h1 {
     line-height: 300px;
     color: #333333;
 }
+
+.pp>img{
+	border-radius: 50%;
+	display: block;
+	margin: 0 auto 30px;
+}
+

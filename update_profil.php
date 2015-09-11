@@ -10,9 +10,10 @@ include('includes/db.php');
  <head>
  	<meta charset="UTF-8">
  	<title>Profil</title>
- 		<link rel="stylesheet" type="text/css" href="css/001mo.css">
+ 		<link rel="stylesheet" type="text/css" href="css/normalize.css">
  		<link rel="stylesheet" type="text/css" href="css/connect.css">
  		<link rel="stylesheet" type="text/css" href="css/form-topic.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
  		<link rel="stylesheet" type="text/css" href="font-awesome-4.3.0/css/font-awesome.css">
  	<!--[if IE]>
      <script type="text/javascript" src="js/modernizr.custom.78869.js">
@@ -52,7 +53,7 @@ $ligne=count($result);
 <input type="email" name="email" value="<?=$result[0]['email']?>"  />
 <input type="text" name="pseudo" value="<?=$result[0]['pseudo']?>" />
 
-<input type="submit" />
+<input type="submit" value="Modifier" />
 
 </form>
 </div>
