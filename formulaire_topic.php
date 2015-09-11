@@ -36,9 +36,8 @@ echo "Bonjour " . $_SESSION['users']['pseudo']."  ";
 </header>
 
 <div class="nav">
-  <a href="liste.php">Liste des membres</a></br>
-  <a href="inscription.html">Inscription</a></br>
-  <a href="connection.html">Connexion</a></br>
+  <a href="liste.php">Liste des membres</a>
+
 </div>
 <div class="container" >
 <h2>Topic</h2>

@@ -30,9 +30,7 @@ include('includes/db.php');
          </a>
       </header>
       <div class="nav">
-         <a href="liste.php">Liste des membres</a></br>
-         <a href="inscription.html">Inscription</a></br>
-         <a href="connection.html">Connexion</a></br>
+         <a href="liste.php">Liste des membres</a>
       </div>
       <?php 
 

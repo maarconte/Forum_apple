@@ -38,8 +38,7 @@ echo "Bonjour " . $_SESSION['users']['pseudo']."  ";
 
 <div class="nav">
   <a href="liste.php">Liste des membres</a></br>
-  <a href="inscription.html">Inscription</a></br>
-  <a href="connection.html">Connexion</a></br>
+
 </div>
 
 <?php
