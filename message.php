@@ -22,8 +22,8 @@ $sql = 'INSERT INTO  messages ( creation,creatorId,topicId,message ) VALUES (NOW
 $request= $pdo->query($sql);
 
 
-/*
-header('Location: accueil.php');*/
+
+header('Location: accueil.php');
 
 // print_r($result);
 // die();

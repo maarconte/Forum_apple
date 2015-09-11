@@ -49,6 +49,7 @@ button>a{
 }
 .post:nth-child(odd){
   background: #F1F1F1;
+  
 }
 .post>p{
     text-align: left;
@@ -64,7 +65,7 @@ button>a{
 
 form{
   width: 800px;
-  margin: 50px auto;
+  margin: 0 auto;
 }
 
 form>input[type=submit]{
@@ -123,7 +124,9 @@ $ligne = count($result);
 <?php for ($i=0; $i <count($result) ; $i++){ ?>
 
 <div class="post" >
-<h2><?= $result[$i]['title'] ?></h2>
+<h2><?php $request2 = $pdo->query( 'SELECT * FROM users WHERE id="' .$result[$i]['creatorId']. '"' );
+  $result2 = $request2->fetchAll();
+  echo $result2[0]['pseudo'].": ".$result[$i]['title']."     ".$result[$i]['creation'];?></h2>
 
 <p><?= $result[$i]['description'] ?></p>
 </div>
@@ -134,7 +137,7 @@ $ligne = count($result);
 
 
 
-  $request = $pdo->query( 'SELECT * FROM messages' );
+  $request = $pdo->query( 'SELECT * FROM messages WHERE topicId="'.$result[$i]['id'].'";' );
   $result = $request->fetchAll();
   $ligne=count($result);
 
@@ -142,7 +145,7 @@ for ($i=0; $i<$ligne;$i++){ ?>
 
 <div class="post"><p> <?php  $request2 = $pdo->query( 'SELECT * FROM users WHERE id="' .$result[$i]['creatorId']. '"' );
   $result2 = $request2->fetchAll();
-  echo $result2[0]['pseudo'].": ".$result[$i]['message']; ?></p>
+  echo $result2[0]['pseudo'].": ".$result[$i]['message']."     ".$result[$i]['creation']; ?></p>
 
 
 
@@ -154,7 +157,7 @@ for ($i=0; $i<$ligne;$i++){ ?>
   ?>
 
 </div>
-
+<h2>Répondre</h2>
 <form action="message.php?id=<?=$result[$i]['id']?>" method="post">
   
 <textarea name="message" id="message" cols="30" rows="10"></textarea>
