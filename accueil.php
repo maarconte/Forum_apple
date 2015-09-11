@@ -10,51 +10,7 @@
       <!--[if IE]>
       <script type="text/javascript" src="js/modernizr.custom.78869.js"></script>
       <![endif]-->
-      <style>
-         table{
-         margin-top: 30px;
-         width: 800px;
-         }
-         table,thead,tr,td{
-         border: none;
-         }
-         tbody>tr:nth-child(odd){
-         background: #F1F1F1;
-         }
-         thead{
-         background:#FFE100;
-         height: 30px;
-         line-height: 30px;
-         }
-         tr>td.date{
-         width: 100px;
-         }
-         tr>td.topic{
-         width: 350px;
-         }
-         h1{
-         line-height: 300px;
-         color: #333333;
-         }
-         button{
-         border: none;
-         background: rgba(255,255,255,0.5);
-         border: solid 1px #333333;
-         height: 30px;
-         width: 90px;
-         padding: 3px;
-         -webkit-box-sizing: border-box;
-         -moz-box-sizing: border-box;
-         box-sizing: border-box;
-         }
-         a>button{
-         color: #333333;
-         font: 16px 'Open Sans';
-         }
-         td{
-         width: 100px;
-         }
-      </style>
+
    </head>
    <body>
       <header>
