@@ -35,16 +35,8 @@
          <a href="connection.html">Connexion</a></br>
       </div>
       <?php 
-         $dsn = 'mysql:host=localhost;dbname=forumlepoles';
-         $user = 'root';
-         $pass = '';
-         
-         $pdo = new PDO(
-           $dsn,
-           $user,
-           $pass
-         );
-         
+include('includes/db.php');
+
          $request = $pdo->query( 'SELECT * FROM topics ORDER BY creation DESC;' );
          $result = $request->fetchAll();
          $ligne=count($result);

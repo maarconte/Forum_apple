@@ -78,7 +78,7 @@ a>h2{
 
 <div class="hello"><?php
 
-session_start();
+include('includes/db.php');session_start();
 
 if ( empty($_SESSION['users']) ) {
 	header('Location: connection.html');
@@ -102,16 +102,6 @@ echo "Bonjour " . $_SESSION['users']['pseudo']."  ";
 
 	<?php
 
-
-$dsn = 'mysql:host=localhost;dbname=forumlepoles';
-$user = 'root';
-$pass = '';
-
-$pdo = new PDO(
-	$dsn,
-	$user,
-	$pass
-);
 
 $request = $pdo->query('SELECT * FROM users;');
 $result = $request->fetchAll();

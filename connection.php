@@ -1,16 +1,6 @@
 <?php
 
-session_start();
-
-$dsn = 'mysql:host=localhost;dbname=forumlepoles';
-$user = 'root';
-$pass = '';
-
-$pdo = new PDO(
-	$dsn,
-	$user,
-	$pass
-);
+include('includes/db.php');
 
 $request = $pdo->query(
 	'SELECT * FROM users WHERE email="' . $_POST['email'] . '" AND password = "' . $_POST['password']. '";'

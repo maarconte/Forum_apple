@@ -1,14 +1,6 @@
 <?php
 
-$dsn = 'mysql:host=localhost;dbname=forumlepoles';
-$user = 'root';
-$pass = '';
-
-$pdo = new PDO(
-	$dsn,
-	$user,
-	$pass
-);
+include('includes/db.php');
 
 if ( $_POST['passwordA'] !== $_POST['passwordB'] ) {
 	header('Location: error-password.html');

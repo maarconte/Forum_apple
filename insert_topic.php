@@ -1,16 +1,7 @@
 <?php
 
 
-$dsn = 'mysql:host=localhost;dbname=forumlepoles';
-$user = 'root';
-$pass = '';
-
-$pdo = new PDO(
-	$dsn,
-	$user,
-	$pass
-);
-session_start();
+include('includes/db.php');
 
 if ( empty($_SESSION['users']) ) {
 	header('Location: connection.html');

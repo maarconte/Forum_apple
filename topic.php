@@ -79,7 +79,7 @@ form>input[type=submit]{
 
 <div class="hello"><?php
 
-session_start();
+include('includes/db.php');
 
 if ( empty($_SESSION['users']) ) {
 	header('Location: connection.html');
@@ -101,16 +101,7 @@ echo "Bonjour " . $_SESSION['users']['pseudo']."  ";
   <a href="connection.html">Connexion</a></br>
 </div>
 
-<?php
-$dsn='mysql:host=localhost;dbname=forumlepoles';
-$user = 'root';
-$pass ='';
 
-$pdo = new PDO(
-$dsn,
-$user,
-$pass 
-);
 
 $request=$pdo->query('SELECT * FROM topics WHERE id= '. $_GET["id"].';
 ');
