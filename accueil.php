@@ -5,6 +5,7 @@
       <title>Document</title>
       <link rel="stylesheet" type="text/css" href="css/normalize.css">
       <link rel="stylesheet" type="text/css" href="css/connect.css">
+      <link rel="stylesheet" type="text/css" href="css/accueil.css">
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
       <link rel="stylesheet" type="text/css" href="font-awesome-4.3.0/css/font-awesome.css">
       <!--[if IE]>
