@@ -93,8 +93,7 @@ echo "Bonjour " . $_SESSION['users']['pseudo']."  ";
   <a href="accueil.php"><h1>Forum</h1></a>
 
  <div class="nav">
-  <a href="liste.php">Liste des membres</a></br>
-
+  <a href="liste.php">Liste des membres</a>
 </div>
 </header>
 

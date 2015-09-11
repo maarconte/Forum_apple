@@ -28,10 +28,11 @@ include('includes/db.php');
          <a href="accueil.php">
             <h1>Forum</h1>
          </a>
-      </header>
-      <div class="nav">
+   <div class="nav">
          <a href="liste.php">Liste des membres</a>
-      </div>
+   </div>
+      </header>
+
       <?php 
 
          $request = $pdo->query( 'SELECT * FROM topics ORDER BY creation DESC;' );

@@ -32,13 +32,12 @@ echo "Bonjour " . $_SESSION['users']['pseudo']."  ";
 
      <a href="accueil.php"><h1>Forum</h1></a>
 
- 
-</header>
-
 <div class="nav">
   <a href="liste.php">Liste des membres</a>
-
 </div>
+</header>
+
+
 <div class="container" >
 <h2>Topic</h2>
 <form action="insert_topic.php" method="post" >
