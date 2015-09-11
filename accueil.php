@@ -49,9 +49,9 @@ include('includes/db.php');
       <table>
          <thead>
             <tr>
-               <td>Topics</td>
-               <td>Auteurs</td>
-               <td >Dates</td>
+               <th>Topics</th>
+               <th>Auteurs</th>
+               <th >Dates</th>
             </tr>
          </thead>
          <tbody>
