@@ -42,7 +42,13 @@ include('includes/db.php');
          $result = $request->fetchAll();
          $ligne=count($result);
          
-         
+                 
+
+
+    /*     print_r($result2);
+         die();*/
+                 
+           
          
           ?>
       <a href="formulaire_topic.php">
@@ -63,8 +69,13 @@ include('includes/db.php');
                
                <td> 
 
+<?php 
 
-               <a href="profil_page.php?id=<?=$result[$i]['id']?>"><?php 
+         $request2= $pdo->query('SELECT*FROM users WHERE id="'.$result[$i]['creatorId'].'" ');
+         $result2=$request2->fetchAll();
+         
+?>
+               <a href="profil_page.php?id=<?=$result2[$i]['id']?>"><?php 
                   $request2 = $pdo->query( 'SELECT * FROM users WHERE id="' .$result[$i]['creatorId']. '"' );
                   $result2 = $request2->fetchAll();
                   echo $result2[0]['pseudo'];
