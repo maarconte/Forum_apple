@@ -12,10 +12,12 @@ $sql = 'INSERT INTO  messages ( creation,creatorId,topicId,message ) VALUES (NOW
 $request= $pdo->query($sql);
 
 
+die();
 
-header('Location: accueil.php');
+header('Location:topic.php?id='.$_GET['id'].'');
 
 // print_r($result);
 // die();
 
 ?>
+

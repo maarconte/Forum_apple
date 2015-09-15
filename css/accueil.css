@@ -32,7 +32,6 @@ h1 {
     color: #333333;
 }
 button {
-    border: none;
     background: rgba(255, 255, 255, 0.5);
     border: solid 1px #333333;
     height: 30px;

@@ -107,7 +107,7 @@ $result = $request->fetchAll();
 for ( $i = 0; $i < count($result); $i++ ) {
 ?>
 <div class="row">
-<a href="#"><h2><?=$result[$i]['pseudo']?></h2></a></div>
+<a href="profil_page.php?id=<?=$result[$i]['id']?>"><h2><?=$result[$i]['pseudo']?></h2></a></div>
 
 
 <?php

@@ -28,8 +28,7 @@ if ( empty($_SESSION['users']) ) {
 }
 
 echo "Bonjour " . $_SESSION['users']['pseudo']."  ";
-?><button><a href="logout.php"><i class="fa fa-sign-out"></i> Log out
-</a></button></div>	
+?><a href="logout.php"><button><i class="fa fa-sign-out"></i> Log out</button></a></div>	
 
     <a href="accueil.php"><h1>Forum</h1></a>
 <div class="nav">
@@ -42,13 +41,12 @@ echo "Bonjour " . $_SESSION['users']['pseudo']."  ";
 
 <?php
 
-$request=$pdo->query('SELECT * FROM topics WHERE id= '. $_GET["id"].';
-');
+$request=$pdo->query('SELECT * FROM topics WHERE id='.$_GET["id"].';');
 
 $result=$request->fetchAll();
 $ligne = count($result);
-// print_r($result);
-// die();
+/* print_r($result);
+ die();*/
 
 
  for ($i=0; $i <count($result) ; $i++){ ?>
@@ -67,7 +65,7 @@ $ligne = count($result);
 
 
 
-  $request = $pdo->query( 'SELECT * FROM messages WHERE topicId="'.$result[$i]['id'].'";' );
+  $request = $pdo->query( 'SELECT * FROM messages  WHERE topicId="'.$result[$i]['id'].'" ORDER BY creation DESC;  ' );
   $result = $request->fetchAll();
   $ligne=count($result);
 
@@ -76,10 +74,6 @@ for ($i=0; $i<$ligne;$i++){ ?>
 <div class="post"><p> <?php  $request2 = $pdo->query( 'SELECT * FROM users WHERE id="' .$result[$i]['creatorId']. '"' );
   $result2 = $request2->fetchAll();
   echo $result2[0]['pseudo'].": ".$result[$i]['message']."     ".$result[$i]['creation']; ?></p>
-
-
-
-
 </div>
 
 

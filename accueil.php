@@ -60,7 +60,11 @@ include('includes/db.php');
             <?php for ($i=0; $i<$ligne;$i++){ ?>
             <tr>
                <td class="topic"><a href="topic.php?id=<?=$result[$i]['id']?>"><?=$result[$i]['title']?></a></td>
-               <td> <a href="#"><?php 
+               
+               <td> 
+
+
+               <a href="profil_page.php?id=<?=$result[$i]['id']?>"><?php 
                   $request2 = $pdo->query( 'SELECT * FROM users WHERE id="' .$result[$i]['creatorId']. '"' );
                   $result2 = $request2->fetchAll();
                   echo $result2[0]['pseudo'];
