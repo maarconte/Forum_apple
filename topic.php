@@ -65,7 +65,7 @@ $ligne = count($result);
 
 
 
-  $request = $pdo->query( 'SELECT * FROM messages  WHERE topicId="'.$result[$i]['id'].'" ORDER BY creation DESC;  ' );
+  $request = $pdo->query( 'SELECT * FROM messages  WHERE topicId="'.$_GET['id'].'" ORDER BY creation DESC;  ' );
   $result = $request->fetchAll();
   $ligne=count($result);
 
@@ -82,7 +82,7 @@ for ($i=0; $i<$ligne;$i++){ ?>
 
 </div>
 <h2>Répondre</h2>
-<form action="message.php?id=<?=$result[$i]['id']?>" method="post">
+<form action="message.php?id=<?=$_GET['id']?>" method="post">
   
 <textarea name="message" id="message" cols="30" rows="10"></textarea>
 <input type="submit">
