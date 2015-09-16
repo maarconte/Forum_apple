@@ -1,16 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-		<link rel="stylesheet" type="text/css" href="css/normaliz.css">
-		<link rel="stylesheet" type="text/css" href="css/connect.css">
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="font-awesome-4.3.0/css/font-awesome.css">
-	<!--[if IE]>
+  <meta charset="UTF-8">
+  <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/connect.css">
+    <link rel="stylesheet" type="text/css" href="css/topic.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="font-awesome-4.3.0/css/font-awesome.css">
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!--[if IE]>
     <script type="text/javascript" src="js/modernizr.custom.78869.js">
     </script>
 <![endif]-->
+   <script type="text/javascript">
+$(function(){
+
+   $('#profil').click(function(e){
+      $('.profil_nav').toggle();
+         e.stopPropagation();
+      });
+});
+
+</script>
 <style>
 	.row{
 		height: 60px;
@@ -31,6 +43,7 @@
 
       }
 
+
   header{
   height: 400px;
   background: url('http://images.apple.com/support/assets/images/home/2015/us_en_hero_1440.jpg') no-repeat scroll center;
@@ -44,28 +57,11 @@ h1{
     color: #333333;
 }
 
-button{
-  border: none;
-  background: rgba(255,255,255,0.5);
-  border: solid 1px #333333;
-  height: 30px;
-  width: 90px;
-  padding: 3px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-
-}
-
- a>button{
-    color: #333333;
-    font: 14px 'Open Sans';
-    cursor: pointer; 
-}
 
 a>h2{
     color: #333333;
     font: 16px 'Open Sans'; 
+    line-height: 60px;
 }
 
 </style>
@@ -74,29 +70,36 @@ a>h2{
 </head>
 <body>
 
-<header>
+      <header>
 
-<div class="hello"><?php
 
-include('includes/db.php');
+         <div class="hello"><?php
+include('includes/db.php'); ?>
 
-if ( empty($_SESSION['users']) ) {
-	header('Location: connection.html');
-	die();
-}
+            
+          <p id="profil"> <?= "Bonjour " . $_SESSION['users']['pseudo']."  ";
+            ?></p>
 
-echo "Bonjour " . $_SESSION['users']['pseudo']."  ";
-?>
+            <ul class="profil_nav">
+               <li><a href="profil_page.php?id=<?=$_SESSION['users']['id']?>">Profil</a></li>
+               <li> <a href="update_profil.php?id=<?=$_SESSION['users']['id']?>">Modifier Profil</a></li>
+               <li>  <a href="logout.php"> <i class="fa fa-sign-out"></i> Log out</a></li>   
+            </ul>
 
-<a href="logout.php"><button><i class="fa fa-sign-out"></i> Log out</button></a></div>	
+          
 
-  <a href="accueil.php"><h1>Forum</h1></a>
+           </div>
 
- <div class="nav">
-  <a href="liste.php">Liste des membres</a>
-</div>
-</header>
+         <a href="accueil.php">
+            <h1>Forum</h1>
+         </a>
 
+
+   <div class="nav">
+         <a href="liste.php">Liste des membres</a>
+        
+   </div>
+      </header>
 
 	<?php
 

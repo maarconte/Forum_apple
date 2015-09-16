@@ -31,7 +31,7 @@ h1 {
     line-height: 300px;
     color: #333333;
 }
-button {
+/* button {
     background: rgba(255, 255, 255, 0.5);
     border: solid 1px #333333;
     height: 30px;
@@ -40,11 +40,8 @@ button {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
-a>button {
-    color: #333333;
-    font: 16px 'Open Sans';
-}
+} */
+
 td {
     width: 100px;
 }
@@ -55,3 +52,4 @@ td {
 th {
     font-weight: 600;
 }
+

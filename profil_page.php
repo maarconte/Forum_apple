@@ -11,7 +11,17 @@
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
       <!--[if IE]<script type="text/javascript" src="js/modernizr.custom.86492.js"></script><![endif]-->
-      <title></title>
+         <script type="text/javascript">
+$(function(){
+
+   $('#profil').click(function(e){
+      $('.profil_nav').toggle();
+         e.stopPropagation();
+      });
+});
+
+</script>
+      <title>Profil Page</title>
       <style>
          h3{
          text-align: center;
