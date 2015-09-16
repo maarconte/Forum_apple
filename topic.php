@@ -12,7 +12,50 @@
     <script type="text/javascript" src="js/modernizr.custom.78869.js">
     </script>
 <![endif]-->
+<style>
+  .head_post{
+  position:relative;
+  background:#FFE100;
+  height: 60px;
+  line-height: 60px;
+  margin: 0 0 10px;
+    -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  }
+  .date{
+    font-size: small;
+    color:#616161;
+    position: absolute;
+    right: 10px;
+    top:10px;
+    margin: 0;
 
+  }
+
+  .creator{
+    position: absolute;
+    left: 10px;
+    top:10px;
+    margin: 0;
+  }
+  .post_first{
+     width: 800px;
+  margin: 0 auto 30px;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  }
+
+  .post{
+    position: relative;
+  }
+  h4{
+    font-weight: 600;
+    margin: 0;
+  }
+</style>
 </head>
 
 <body>
@@ -51,11 +94,18 @@ $ligne = count($result);
 
  for ($i=0; $i <count($result) ; $i++){ ?>
 
-<div class="post" >
+
+<div class="head_post">
 <h2><?php $request2 = $pdo->query( 'SELECT * FROM users WHERE id="' .$result[$i]['creatorId']. '"' );
   $result2 = $request2->fetchAll();
-  echo $result2[0]['pseudo'].": ".$result[$i]['title']."     ".$result[$i]['creation'];?></h2>
+  echo $result[$i]['title']?></h2>
 
+ <p class="creator"><?=$result2[0]['pseudo']?></p>
+
+  <span class="date"><?=$result[0]['creation'];?></span> 
+</div>
+
+<div class="post_first" >
 <p><?= $result[$i]['description'] ?></p>
 </div>
 
@@ -65,7 +115,7 @@ $ligne = count($result);
 
 
 
-  $request = $pdo->query( 'SELECT * FROM messages  WHERE topicId="'.$_GET['id'].'" ORDER BY creation DESC;  ' );
+  $request = $pdo->query( 'SELECT * FROM messages  WHERE topicId="'.$_GET['id'].'" ;  ' );
   $result = $request->fetchAll();
   $ligne=count($result);
 
@@ -73,7 +123,10 @@ for ($i=0; $i<$ligne;$i++){ ?>
 
 <div class="post"><p> <?php  $request2 = $pdo->query( 'SELECT * FROM users WHERE id="' .$result[$i]['creatorId']. '"' );
   $result2 = $request2->fetchAll();
-  echo $result2[0]['pseudo'].": ".$result[$i]['message']."     ".$result[$i]['creation']; ?></p>
+  ?>
+
+  <h4><?=$result2[0]['pseudo'].": "?></h4><?= $result[$i]['message']?></p>
+  </p><span class="date"><?=$result[0]['creation'];?></span> 
 </div>
 
 

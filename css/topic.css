@@ -30,7 +30,10 @@ button>a{
 .post{
   width: 800px;
   margin: 0 auto 30px;
-  padding: 5px;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .post:nth-child(odd){
   background: #F1F1F1;
@@ -41,10 +44,10 @@ button>a{
 
 }
 
-.post>h2{
-    background:#FFE100;
-  height: 30px;
-  line-height: 30px;
+h2{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
 }
 
