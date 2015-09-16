@@ -1,17 +1,27 @@
+<?php 
+include('includes/db.php');
 
-<!DOCTYPE html>
-<html lang="fr">
-   <head>
-      <meta charset="UTF-8">
-      <link rel="stylesheet" type="text/css" href="font-awesome-4.3.0/css/font-awesome.css">
-      <link rel="stylesheet" type="text/css" href="css/normalize.css">
-      <link rel="stylesheet" type="text/css" href="css/connect.css">
-      <link rel="stylesheet" type="text/css" href="css/accueil.css">
-      <link rel="stylesheet" type="text/css" href="css/form-topic.css">
-      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-      <!--[if IE]<script type="text/javascript" src="js/modernizr.custom.86492.js"></script><![endif]-->
-         <script type="text/javascript">
+
+ ?>
+
+
+ <!DOCTYPE html>
+ <html lang="FR-fr">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>Profil</title>
+ 		<link rel="stylesheet" type="text/css" href="css/normalize.css">
+ 		<link rel="stylesheet" type="text/css" href="css/connect.css">
+ 		<link rel="stylesheet" type="text/css" href="css/form-topic.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+ 		<link rel="stylesheet" type="text/css" href="font-awesome-4.3.0/css/font-awesome.css">
+ 	     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <!--[if IE]>
+     <script type="text/javascript" src="js/modernizr.custom.78869.js">
+     </script>
+ <![endif]-->
+ <script type="text/javascript">
 $(function(){
 
    $('#profil').click(function(e){
@@ -21,6 +31,7 @@ $(function(){
 });
 
 </script>
+
       <style>
          h3{
          text-align: center;
@@ -33,7 +44,7 @@ $(function(){
          }
 
          li,ul {
-         	list-style: none;
+          list-style: none;
          }
 
 /*          h4{
@@ -44,7 +55,7 @@ height: 40px;
 line-height: 40px;
 } */
          #menu{
-		 font-weight: 600;
+     font-weight: 600;
          margin-left: 0;
          padding-bottom : 32px; /* à modifier suivant la taille de la police ET de la hauteur de l'onglet dans #onglets li */
          border-bottom : 1px solid #9EA0A1;
@@ -53,36 +64,36 @@ line-height: 40px;
          }
 
          .onglet{
-         	float: left;
-         	height: 32px;
-         /* 	margin : 2px 2px 0 2px !important;  Pour les navigateurs autre que IE
-          		    		margin : 1px 2px 0 2px;  Pour IE   */ 		
-    		width: 200px;
-    		background: #FFE900;
+          float: left;
+          height: 32px;
+         /*   margin : 2px 2px 0 2px !important;  Pour les navigateurs autre que IE
+                      margin : 1px 2px 0 2px;  Pour IE   */     
+        width: 200px;
+        background: #FFE900;
          }
 
          .onglet h4{
-         	display: block;
-         	text-align: center;
-         	line-height: 30px;
-         	
-         	font-weight: 600;
-         	margin: 0;
+          display: block;
+          text-align: center;
+          line-height: 30px;
+          
+          font-weight: 600;
+          margin: 0;
          }
          .active{
-         	border-bottom: 1px solid #F7F7F7;
-         	border-right: 1px solid #9EA0A1;
-			border-left: 1px solid #9EA0A1;
-			border-top: 1px solid #9EA0A1;
-         	background: #F7F7F7;
+          border-bottom: 1px solid #F7F7F7;
+          border-right: 1px solid #9EA0A1;
+      border-left: 1px solid #9EA0A1;
+      border-top: 1px solid #9EA0A1;
+          background: #F7F7F7;
 
 
          }
 
-		h3{
-			font-weight: 600;
-			font-size: 20px;
-		}
+    h3{
+      font-weight: 600;
+      font-size: 20px;
+    }
          .result{
          position:relative;
          overflow: hidden;
@@ -108,14 +119,18 @@ line-height: 40px;
          top:10px;
          }
       </style>
-   </head>
-   <body>
-      <header>
+ </head>
+ <body>
+ <?php 
 
+$request= $pdo->query('SELECT*FROM users WHERE id="'.$_GET['id'].'" ');
+$result=$request->fetchAll();
+$ligne=count($result);
 
-         <div class="hello"><?php
-include('includes/db.php');
-            ?>
+ ?>
+ 	       <header>
+
+         <div class="hello">
             
           <p id="profil"> <?= "Bonjour " . $_SESSION['users']['pseudo']."  ";
             ?></p>
@@ -140,11 +155,21 @@ include('includes/db.php');
         
    </div>
       </header>
-      <div class="container">
-      <div class="pp">
-         <img src="images/user.png" alt="user">
-      </div>
-      <?php 
+	<div class="container">
+		<div class="pp">
+			<img src="images/user.png" alt="user">
+		</div>	
+    <h2><?=$result[0]['pseudo']?></h2>
+<form action="profil.php?id=<?=$_GET['id']?>" method="post">
+
+<input type="email" name="email" value="<?=$result[0]['email']?>"  />
+<input type="text" name="pseudo" value="<?=$result[0]['pseudo']?>" />
+
+<input type="submit" value="Modifier" />
+
+</form>
+
+         <?php 
          $request= $pdo->query('SELECT*FROM users WHERE id="'.$_GET['id'].'" ');
          $result=$request->fetchAll();
          $ligne=count($result);
@@ -153,9 +178,9 @@ include('includes/db.php');
       <h3><?=$result[0]['pseudo']?></h3>
       <ul id="menu">
          <li class="onglet ">
-         	<a href="profil_page.php?id=<?=$_GET['id']?>"><h4>Topics: </h4></a>  </li>
-         	   <li class="onglet active">
-         	<a href="#"><h4>Derniers messages:</h4></a></li> </ul>
+          <a href="update_profil.php?id=<?=$_GET['id']?>"><h4>Topics: </h4></a>  </li>
+             <li class="onglet active">
+          <a href="#"><h4>Derniers messages:</h4></a></li> </ul>
           
       
       <?php 
@@ -175,21 +200,20 @@ include('includes/db.php');
            echo $result2[0]['title'];?>
            </a>
         </h3>
-        <span class="date"><?=$result[0]['creation'];?></span> 
-        <p><?=$result[$i]['message'] ; die()?></p></li>
+        <span class="date"><?=$result[0]['creation'];?>
+                    <a href="delete_topic.php">&nbsp;&nbsp;<i class="fa fa-times"></i></a>
+            <a href="update_topic.php">&nbsp;&nbsp;<i class="fa fa-pencil"></i></a></span> 
+        <p><?=$result[$i]['message'];?></p></li>
      </ul>
      <?php
      }
      else{
-     	echo "Pas de messages";
+      echo "Pas de messages";
           die();
      }
         }
         ?> 
-         
-        
-    </div>
+</div>
 
-   </body>
-</html>
-
+ </body>
+ </html>

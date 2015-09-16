@@ -23,6 +23,32 @@ $(function(){
 });
 
 </script>
+
+<style>
+   #search{
+      border-radius: 2px;
+      background-color: rgba(255,255,255,0.5);
+      border: none;
+      padding: 5px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      width:70px;
+      text-align: center;
+      -webkit-transition-duration: 0.5s;
+      -o-transition-duration: 0.5s;
+      transition-duration: 0.5s;
+   }
+
+   #search:focus{
+      background-color:#fff;
+      text-align: left;
+       width:150px;
+   }
+</style>
    </head>
    <body>
       <header>
@@ -51,9 +77,11 @@ include('includes/db.php');
 
 
    <div class="nav">
-         <a href="liste.php">Liste des membres</a>
-        
+         <a href="liste.php">Liste des membres</a>  
    </div>
+
+   <form action="search.php" method="post"><input type="text" name="search" placeholder="Search" id="search"></form>
+
       </header>
 
       <?php 
@@ -87,7 +115,7 @@ include('includes/db.php');
             <tr>
                <td class="topic"><a href="topic.php?id=<?=$result[$i]['id']?>"><?=$result[$i]['title']?></a></td>
                
-               <td> 
+               <td class="creatorId"> 
 
 <?php 
 

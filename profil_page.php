@@ -112,23 +112,34 @@ line-height: 40px;
    </head>
    <body>
       <header>
+
+
          <div class="hello"><?php
-            include('includes/db.php');
-                        
-                        if ( empty($_SESSION['users']) ) {
-                          header('Location: connection.html');
-                          die();
-                        }
-                        
-                        echo "Bonjour " . $_SESSION['users']['pseudo']."  ";
-                        ?><a href="logout.php"><button><i class="fa fa-sign-out"></i> Log out</button></a></div>
+include('includes/db.php');
+            ?>
+            
+          <p id="profil"> <?= "Bonjour " . $_SESSION['users']['pseudo']."  ";
+            ?></p>
+
+            <ul class="profil_nav">
+               <li><a href="profil_page.php?id=<?=$_SESSION['users']['id']?>">Profil</a></li>
+               <li> <a href="update_profil.php?id=<?=$_SESSION['users']['id']?>">Modifier Profil</a></li>
+               <li>  <a href="logout.php"> <i class="fa fa-sign-out"></i> Log out</a></li>   
+            </ul>
+
+          
+
+           </div>
+
          <a href="accueil.php">
             <h1>Forum</h1>
          </a>
-         <div class="nav">
-            <a href="liste.php">Liste des membres</a>
-            <a href="update_profil.php?id=<?=$_SESSION['users']['id']?>">Modifier Profil</a>
-         </div>
+
+
+   <div class="nav">
+         <a href="liste.php">Liste des membres</a>
+        
+   </div>
       </header>
       <div class="container">
       <div class="pp">
@@ -139,7 +150,7 @@ line-height: 40px;
          $result=$request->fetchAll();
          $ligne=count($result);
          
-          ?>
+          ?> 
       <h3><?=$result[0]['pseudo']?></h3>
       <ul id="menu">
          <li class="onglet active">
@@ -158,7 +169,7 @@ line-height: 40px;
          <li><a href="topic.php?id=<?=$result[$i]['id']?>"><?=$result[$i]['title']?>
             </a>
          </li>
-         <span class="date"><?=$result[0]['creation'];?></span> 
+         <span class="date"><?=$result[0]['creation']; ; die()?></span> 
       </ul>
       <?php }
       
@@ -167,39 +178,7 @@ line-height: 40px;
       	die();
       }
       } ?>
-   
-      
-      
-     <!--  <?php 
-        $request= $pdo->query('SELECT*FROM messages WHERE creatorId="'.$_GET['id'].'" ');
-        $result=$request->fetchAll();
-        $ligne=count($result);
-        
-        for ( $i = 0; $i <= 2; $i++ ) {
-        
-        if ($ligne > 0) { ?>
-     <ul class="result">
-        <li><h3><a href="topic.php?id=<?=$result[$i]['topicId']?>"><?php 
-           $request2 = $pdo->query( 'SELECT * FROM topics WHERE id="' .$result[$i]['topicId']. '"' );
-           $result2 = $request2->fetchAll();
-           
-           
-           echo $result2[0]['title'];?>
-           </a>
-        </h3>
-        <span class="date"><?=$result[0]['creation'];?></span> 
-        <p><?=$result[$i]['message']?></p></li>
-     </ul>
-     <?php
-     }
-     else{
-     	echo "Pas de messages";
-          die();
-     }
-        }
-        ?> -->
-         
-        
+
     </div>
 
    </body>
