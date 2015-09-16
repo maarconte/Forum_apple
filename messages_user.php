@@ -132,35 +132,13 @@ line-height: 40px;
           ?>
       <h3><?=$result[0]['pseudo']?></h3>
       <ul id="menu">
-         <li class="onglet active">
+         <li class="onglet ">
          	<a href="profil_page.php?id=<?=$_GET['id']?>"><h4>Topics: </h4></a>  </li>
-         	   <li class="onglet">
-         	<a href="messages_user.php?id=<?=$_GET['id']?>"><h4>Derniers messages:</h4></a></li> </ul>
+         	   <li class="onglet active">
+         	<a href="#"><h4>Derniers messages:</h4></a></li> </ul>
+          
       
       <?php 
-         $request= $pdo->query('SELECT*FROM topics WHERE creatorId="'.$_GET['id'].'" ');
-         $result=$request->fetchAll();
-         $ligne=count($result);
-         
-         for ( $i = 0; $i < count($result); $i++ ) {
-         	if ($ligne > 0) {?>
-      <ul class="result">
-         <li><a href="topic.php?id=<?=$result[$i]['id']?>"><?=$result[$i]['title']?>
-            </a>
-         </li>
-         <span class="date"><?=$result[0]['creation'];?></span> 
-      </ul>
-      <?php }
-      
-        else{
-      	echo "Pas de topics";
-      	die();
-      }
-      } ?>
-   
-      
-      
-     <!--  <?php 
         $request= $pdo->query('SELECT*FROM messages WHERE creatorId="'.$_GET['id'].'" ');
         $result=$request->fetchAll();
         $ligne=count($result);
@@ -187,7 +165,7 @@ line-height: 40px;
           die();
      }
         }
-        ?> -->
+        ?> 
          
         
     </div>
