@@ -75,7 +75,7 @@ include('includes/db.php');
          $result2=$request2->fetchAll();
          
 ?>
-               <a href="profil_page.php?id=<?=$result2[$i]['id']?>"><?php 
+               <a href="profil_page.php?id=<?=$result[$i]['creatorId']?>"><?php 
                   $request2 = $pdo->query( 'SELECT * FROM users WHERE id="' .$result[$i]['creatorId']. '"' );
                   $result2 = $request2->fetchAll();
                   echo $result2[0]['pseudo'];

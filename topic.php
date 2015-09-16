@@ -100,7 +100,7 @@ $ligne = count($result);
   $result2 = $request2->fetchAll();
   echo $result[$i]['title']?></h2>
 
- <p class="creator"><?=$result2[0]['pseudo']?></p>
+ <a href="profil_page.php?id=<?=$result[$i]['creatorId']?>"><p class="creator"><?=$result2[0]['pseudo']?></p></a>
 
   <span class="date"><?=$result[0]['creation'];?></span> 
 </div>
