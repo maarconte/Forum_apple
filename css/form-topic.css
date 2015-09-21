@@ -51,10 +51,19 @@ h1 {
     line-height: 300px;
     color: #333333;
 }
-
-.pp>img{
-	border-radius: 50%;
+.pp{
+	height: 100px;
+	width: 100px;
+	overflow: hidden;
+		border-radius: 50%;
 	display: block;
 	margin: 0 auto 30px;
+	position: relative;
+}
+.pp>img{
+	height: 100px;
+	left: -28%;
+	position: absolute;
+
 }
 

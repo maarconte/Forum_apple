@@ -16,7 +16,7 @@
    <script type="text/javascript">
 $(function(){
 
-   $('#profil').click(function(e){
+   $('.icon').click(function(e){
       $('.profil_nav').toggle();
          e.stopPropagation();
       });
@@ -24,31 +24,6 @@ $(function(){
 
 </script>
 
-<style>
-   #search{
-      border-radius: 2px;
-      background-color: rgba(255,255,255,0.5);
-      border: none;
-      padding: 5px;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      position: absolute;
-      right: 10px;
-      bottom: 10px;
-      width:70px;
-      text-align: center;
-      -webkit-transition-duration: 0.5s;
-      -o-transition-duration: 0.5s;
-      transition-duration: 0.5s;
-   }
-
-   #search:focus{
-      background-color:#fff;
-      text-align: left;
-       width:150px;
-   }
-</style>
    </head>
    <body>
       <header>
@@ -58,17 +33,22 @@ $(function(){
 include('includes/db.php');
             ?>
             
-          <p id="profil"> <?= "Bonjour " . $_SESSION['users']['pseudo']."  ";
-            ?></p>
+          <p id="profil" style="margin:20px 70px;"> <?= $_SESSION['users']['pseudo']."  ";
+            ?> </p>
+
+         <div class="pp icon" style="background-color:#fff;width:50px;height:50px;position: absolute;right: 10px;top: 10px;">
+         <?php 
+         $request= $pdo->query('SELECT*FROM users WHERE id="'.$_SESSION['users']['id'].'" ');
+         $result=$request->fetchAll();
+          ?> 
+         <img src="<?=$result['0']['avatar']?>" alt="user" style="height:50px">
+      </div>
 
             <ul class="profil_nav">
                <li><a href="profil_page.php?id=<?=$_SESSION['users']['id']?>">Profil</a></li>
                <li> <a href="update_profil.php?id=<?=$_SESSION['users']['id']?>">Modifier Profil</a></li>
                <li>  <a href="logout.php"> <i class="fa fa-sign-out"></i> Log out</a></li>   
             </ul>
-
-          
-
            </div>
 
          <a href="accueil.php">
@@ -127,7 +107,7 @@ include('includes/db.php');
                   $request2 = $pdo->query( 'SELECT * FROM users WHERE id="' .$result[$i]['creatorId']. '"' );
                   $result2 = $request2->fetchAll();
                   echo $result2[0]['pseudo'];
-                  ?></a></td>
+                  ?></a> </td>
                <td class="date"> <a href="#"><?=$result[$i]['creation']?></a></td>
             </tr>
             <?php }

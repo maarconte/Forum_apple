@@ -22,7 +22,7 @@ h2{
 header {
     height: 400px;
     background: url('http://images.apple.com/support/assets/images/home/2015/us_en_hero_1440.jpg') no-repeat scroll center;
-    background-size: 100%;
+    background-size: cover;
     position: relative;
 }
 a {
@@ -55,8 +55,12 @@ a {
     position: relative;
 }
 
+.profil_nav>li:hover{
+  background: #424242;
+}
+
 .profil_nav a{
-     color: #fff;
+     color: #9e9e9e;
 }
 
 .profil_nav:after {
@@ -82,6 +86,43 @@ a {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-#profil:hover{
-    cursor: pointer;
+
+ #search{
+      border-radius: 2px;
+      background-color: rgba(255,255,255,0.5);
+      border: none;
+      padding: 5px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      width:70px;
+      text-align: center;
+      -webkit-transition-duration: 0.5s;
+      -o-transition-duration: 0.5s;
+      transition-duration: 0.5s;
+   }
+
+   #search:focus{
+      background-color:#fff;
+      text-align: left;
+       width:150px;
+   }
+
+   .pp{
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+    border-radius: 50%;
+  display: block;
+  margin: 0 auto 30px;
+  position: relative;
+}
+.pp>img{
+  height: 100px;
+  left: -28%;
+  position: absolute;
+
 }

@@ -24,7 +24,7 @@ include('includes/db.php');
  <script type="text/javascript">
 $(function(){
 
-   $('#profil').click(function(e){
+   $('.icon').click(function(e){
       $('.profil_nav').toggle();
          e.stopPropagation();
       });
@@ -130,19 +130,24 @@ $ligne=count($result);
  ?>
  	       <header>
 
-         <div class="hello">
+                 <div class="hello">
             
-          <p id="profil"> <?= "Bonjour " . $_SESSION['users']['pseudo']."  ";
-            ?></p>
+          <p id="profil" style="margin:20px 70px;"> <?= $_SESSION['users']['pseudo']."  ";
+            ?> </p>
+
+         <div class="pp icon" style="background-color:#fff;width:50px;height:50px;position: absolute;right: 10px;top: 10px;">
+         <?php 
+         $request= $pdo->query('SELECT*FROM users WHERE id="'.$_SESSION['users']['id'].'" ');
+         $result=$request->fetchAll();
+          ?> 
+         <img src="<?=$result['0']['avatar']?>" alt="user" style="height:50px">
+      </div>
 
             <ul class="profil_nav">
                <li><a href="profil_page.php?id=<?=$_SESSION['users']['id']?>">Profil</a></li>
                <li> <a href="update_profil.php?id=<?=$_SESSION['users']['id']?>">Modifier Profil</a></li>
                <li>  <a href="logout.php"> <i class="fa fa-sign-out"></i> Log out</a></li>   
             </ul>
-
-          
-
            </div>
 
          <a href="accueil.php">
@@ -154,12 +159,22 @@ $ligne=count($result);
          <a href="liste.php">Liste des membres</a>
         
    </div>
+     <form action="search.php" method="post"><input type="text" name="search" placeholder="Search" id="search"></form>
       </header>
 	<div class="container">
-		<div class="pp">
-			<img src="images/user.png" alt="user">
-		</div>	
+		 <div class="pp">
+            <?php 
+         $request= $pdo->query('SELECT*FROM users WHERE id="'.$_GET['id'].'" ');
+         $result=$request->fetchAll();
+         $ligne=count($result);
+         
+          ?> 
+         <img src="<?=$result['0']['avatar']?>" alt="user">
+      </div>
     <h2><?=$result[0]['pseudo']?></h2>
+     <form action="insert_avatar.php?id=<?=$_GET['id']?>" method="post"> <label for="avatar">Avatar</label><input type="text" name="avatar" placeholder="url image" />
+       <input type="submit" value="Upload" /> 
+     </form></br>
 <form action="profil.php?id=<?=$_GET['id']?>" method="post">
 
 <input type="email" name="email" value="<?=$result[0]['email']?>"  />

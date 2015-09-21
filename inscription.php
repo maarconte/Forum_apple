@@ -16,6 +16,6 @@ if ( count($result) > 0 ) {
 	header('Location: error-email.html');
 	die();
 } else {
-	$requestB = $pdo->query('INSERT INTO users ( pseudo, email, password ) VALUES ("' . $_POST['pseudo'] . '","' . $_POST['email'] . '", "' . $_POST['passwordA'] . '");');
+	$requestB = $pdo->query('INSERT INTO users ( pseudo, email, password, avatar ) VALUES ("' . $_POST['pseudo'] . '","' . $_POST['email'] . '", "' . $_POST['passwordA'] . '", "' . $_POST['avatar'] . '");');
 }
 header('Location: connection.php');

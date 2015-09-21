@@ -29,13 +29,13 @@ $(function(){
   width: 800px;
   margin: 0 auto;
 }
-	.row{
-		height: 200px;
-		width: 150px;
-		overflow: hidden;
-		margin: 0 auto 10px;
-		position: relative;
-		background:#F7F7F7 ;
+   .row{
+      height: 200px;
+      width: 150px;
+      overflow: hidden;
+      margin: 0 auto 10px;
+      position: relative;
+      background:#F7F7F7 ;
     float: left;
     margin-right: 10px;
     padding: 10px;
@@ -43,9 +43,9 @@ $(function(){
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 
-	}	
+   }  
 
-	.hello{
+   .hello{
     
     position: absolute;
     right: 10px;
@@ -56,7 +56,16 @@ $(function(){
 
 
   header{
+  height: 400px;
+  background: url('http://images.apple.com/support/assets/images/home/2015/us_en_hero_1440.jpg') no-repeat scroll center;
+  background-size: 100%;
+  position: relative;
   margin-bottom: 30px;
+}
+
+h1{
+  line-height: 300px;
+    color: #333333;
 }
 
 
@@ -70,16 +79,13 @@ a>h2{
 
 
 </head>
-
-<?php
-include('includes/db.php');
-include('includes/forum.php');
-?>
 <body>
 
       <header>
 
-         <div class="hello">
+         <div class="hello"><?php
+include('includes/db.php');
+            ?>
             
           <p id="profil" style="margin:20px 70px;"> <?= $_SESSION['users']['pseudo']."  ";
             ?> </p>
@@ -109,17 +115,29 @@ include('includes/forum.php');
         
    </div>
 
-     <form action="search_users.php" method="post"><input type="text" name="search" placeholder="Search" id="search"></form>
+     <form action="search.php" method="post"><input type="text" name="search" placeholder="Search" id="search"></form>
       </header>
 
-<?php
+    <?php 
+$dsn = 'mysql:host=localhost;dbname=forumlepoles';
+$user = 'root';
+$pass = '';
 
-$liste=new Forum($pdo);
-$liste->selectUsers();
+$pdo = new PDO(
+  $dsn,
+  $user,
+  $pass
+);
 
-for ( $i = 0; $i < count($result); $i++ ) {
-?>
-<div class="container">
+         $request = $pdo->query( 'SELECT * FROM users WHERE pseudo LIKE "%'.$_POST['search'].'%" ORDER BY pseudo;' );
+         $result = $request->fetchAll();
+         $ligne=count($result); 
+
+     
+        for ($i=0; $i <= $ligne ; $i++) { 
+
+          if ($ligne>0) { ?>
+                  <div class="container">
 <div class="row">
 <?php if (empty($result[$i]['avatar'])) { ?>
      <div class="pp">
@@ -135,9 +153,12 @@ for ( $i = 0; $i < count($result); $i++ ) {
 <a href="profil_page.php?id=<?=$result[$i]['id']?>"><h2><?=$result[$i]['pseudo']?></h2></a></div>
 
 </div>
-<?php
-}
 
-?>
+
+
+
+          <?php } die(); } ?>
+
+
 </body>
 </html>
