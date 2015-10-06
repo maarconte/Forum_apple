@@ -138,11 +138,11 @@
             $ligne     =  count($messages);
    
          if ($ligne > 0) { 
-           for ( $i = 0; $i <= 5; $i++ ) {?>
+           for ( $i = 0; $i <= ($ligne-1); $i++ ) {?>
               <li>
                  <h3><a href="topic.php?id=<?=$messages[$i]['topicId']?>"><?php 
-                    $topic=$forum->afficherTopicUser($messages[$i]['topicId']);
-                     echo $topic[$i]['title'];?>
+                    $topic=$forum->topicActiv($messages[$i]['topicId']);
+                     echo $topic[0]['title'];?>
                     </a>
                  </h3>
                  <span class="date"><?=$messages[$i]['creation'];?></span> 

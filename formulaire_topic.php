@@ -16,16 +16,6 @@
     <script type="text/javascript" src="js/modernizr.custom.78869.js">
     </script>
 <![endif]-->
-<script type="text/javascript">
-$(function(){
-
-   $('.icon').click(function(e){
-      $('.profil_nav').toggle();
-         e.stopPropagation();
-      });
-});
-
-</script>
 </head>
 <body>
 <?php include('includes/db.php');

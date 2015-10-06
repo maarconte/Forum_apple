@@ -141,7 +141,7 @@
             $topics  =  $forum->afficherTopicUser($_SESSION['users']['id']);
             $ligne   =  count($topics);
             
-            for ( $i = 0; $i < count($topics); $i++ ) {
+            for ( $i = 0; $i < $ligne; $i++ ) {
                if ($ligne > 0) {?>
          <ul class="result">
             <li><a href="topic.php?id=<?=$topics[$i]['id']?>"><?=$topics[$i]['title']?>

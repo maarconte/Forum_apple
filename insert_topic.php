@@ -4,17 +4,13 @@
 include('includes/db.php');
 include('includes/forum.php');
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> origin/master
 if ( empty($_SESSION['users']) ) {
 	header('Location: connection.html');
 	die();
 }
 
-if (!empty($_POST)){
+if ( !empty($_POST['description']) AND (!empty($_POST['title'])) ){
 
 	$insert_topic= new Forum($pdo);
 
@@ -31,6 +27,10 @@ if (!empty($_POST)){
 	header('Location: accueil.php');
 	die();
 
+}
+
+else {
+	header('Location: formulaire_topic.php');
 }
 
 

@@ -17,16 +17,7 @@ include("header.php"); ?>
     <script type="text/javascript" src="js/modernizr.custom.78869.js">
     </script>
 <![endif]-->
-   <script type="text/javascript">
-$(function(){
-
-   $('#profil').click(function(e){
-      $('.profil_nav').toggle();
-         e.stopPropagation();
-      });
-});
-
-</script>
+   
 
       <style>
          h3{
@@ -50,7 +41,7 @@ background:#FFE100;
 height: 40px;
 line-height: 40px;
 } */
-         #menu{
+         #menu_profil{
      font-weight: 600;
          margin-left: 0;
          padding-bottom : 32px; /* à modifier suivant la taille de la police ET de la hauteur de l'onglet dans #onglets li */
@@ -141,7 +132,7 @@ line-height: 40px;
          
          
       <h3><?=$result[0]['pseudo']?></h3>
-      <ul id="menu">
+      <ul id="menu_profil">
          <li class="onglet ">
           <a href="update_profil.php?id=<?=$_GET['id']?>"><h4>Topics: </h4></a>  </li>
              <li class="onglet active">

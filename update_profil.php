@@ -42,7 +42,7 @@ background:#FFE100;
 height: 40px;
 line-height: 40px;
 } */
-         #menu{
+         #menu_profil{
      font-weight: 600;
          margin-left: 0;
          padding-bottom : 32px; /* à modifier suivant la taille de la police ET de la hauteur de l'onglet dans #onglets li */
@@ -140,33 +140,33 @@ line-height: 40px;
 </form>
 
       <h3><?=$result[0]['pseudo']?></h3>
-      <ul id="menu">
+      <ul id="menu_profil">
          <li class="onglet active">
           <a href="update_profil.php?id=<?=$_GET['id']?>"><h4>Topics: </h4></a>  </li>
              <li class="onglet">
           <a href="update_profil_messages.php?id=<?=$_GET['id']?>"><h4>Derniers messages:</h4></a></li> </ul>
-      
+      <ul class="result">
       <?php 
          $result=$forum->afficherTopicUser($_GET['id']);
          $ligne=count($result);
          
          for ( $i = 0; $i < count($result); $i++ ) {
           if ($ligne > 0) {?>
-      <ul class="result">
+      
          <li><a href="topic.php?id=<?=$result[$i]['id']?>"><?=$result[$i]['title']?></a>
          </li>
          <span class="date"><?=$result[0]['creation']; ?> 
             <a href="delete_topic.php?id=<?=$result[$i]['id']?>">&nbsp;&nbsp;<i class="fa fa-times"></i></a>
             <a href="update_topic.php?id=<?=$result[$i]['id']?>">&nbsp;&nbsp;<i class="fa fa-pencil"></i></a>
           </span> 
-      </ul>
+      
       <?php }
       
         else{
         echo "Pas de topics";
         die();
       }
-      } ?>
+      } ?></ul>
 </div>
 
  </body>
