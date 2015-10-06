@@ -9,6 +9,8 @@
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
       <link rel="stylesheet" type="text/css" href="font-awesome-4.3.0/css/font-awesome.css">
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+      <script>tinymce.init({selector:'textarea'});</script>
       <!--[if IE]>
       <script type="text/javascript" src="js/modernizr.custom.78869.js"></script>
       <![endif]-->

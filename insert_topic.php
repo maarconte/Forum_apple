@@ -4,8 +4,11 @@
 include('includes/db.php');
 include('includes/forum.php');
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> origin/master
 if ( empty($_SESSION['users']) ) {
 	header('Location: connection.html');
 	die();
