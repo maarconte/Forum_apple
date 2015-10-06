@@ -4,17 +4,6 @@
 include('includes/db.php');
 include('includes/forum.php');
 
-$dsn = 'mysql:host=localhost;dbname=forumlepoles';
-$user = 'root';
-$pass = '';
-
-$pdo = new PDO(
-	$dsn,
-	$user,
-	$pass
-);
-
-
 if ( empty($_SESSION['users']) ) {
 	header('Location: connection.html');
 	die();
