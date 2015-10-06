@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="FR-fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="" /> <!--Descrire la page dans "content"-->
+	<meta name="keywords" content="" /> <!--Mots cle de la page dans "content" (separer avec des virgules)-->
+	<title>Titre de la page</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> <!--Bibliotheque Jquery-->
+	<link rel="stylesheet" type="text/css" href="css/normalize.css"> <!--Bibliotheque normalize (a jouter dans le dossier css)-->
+	<link rel="stylesheet" type="text/css" href="font-awesome-4.3.0/css/font-awesome.css"> <!--Bibliotheque font-awesome (a jouter dans le dossier, mettre a jour selon les versions)-->
+	<link href="css/bootstrap.css" rel="stylesheet"> <!--BootStrap CSS-->
+    <link href="css/bootstrap-responsive.css" rel="stylesheet"> <!--BootStrap CSS pour Mobile-->
+	<link rel="stylesheet" href="style.css"> <!--Mon CSS-->
+	<!--[if IE]>
+    <script type="text/javascript" src="js/modernizr.custom.78869.js">
+    </script>
+	<![endif]-->
+</head>
+	<body>
+
+		<form enctype="multipart/form-data" action="insert_image.php?id=<?php$_GET['id']; ?>" method="post">
+        		<div id="filediv"><input name="file[]" type="file" id="file"/></div><br/>
+        		<!--<input type="button" id="add_more" class="upload" value="Add More Files"/>-->
+        		<input type="submit" value="Envoyer" name="submit" id="upload" class="upload"/>
+    	</form>
+
+ 		<!-- Le javascript
+   		 ================================================== -->
+    		<!-- Placed at the end of the document so the pages load faster -->
+    		<script src="../assets/js/jquery.js"></script>
+    		<script src="../assets/js/bootstrap-transition.js"></script>
+    		<script src="../assets/js/bootstrap-alert.js"></script>
+    		<script src="../assets/js/bootstrap-modal.js"></script>
+    		<script src="../assets/js/bootstrap-dropdown.js"></script>
+    		<script src="../assets/js/bootstrap-scrollspy.js"></script>
+    		<script src="../assets/js/bootstrap-tab.js"></script>
+    		<script src="../assets/js/bootstrap-tooltip.js"></script>
+    		<script src="../assets/js/bootstrap-popover.js"></script>
+    		<script src="../assets/js/bootstrap-button.js"></script>
+    		<script src="../assets/js/bootstrap-collapse.js"></script>
+    		<script src="../assets/js/bootstrap-carousel.js"></script>
+    		<script src="../assets/js/bootstrap-typeahead.js"></script>
+
+	</body>
+</html>
