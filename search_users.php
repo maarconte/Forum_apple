@@ -55,14 +55,6 @@ $(function(){
       }
 
 
-  header{
-  height: 400px;
-  background: url('http://images.apple.com/support/assets/images/home/2015/us_en_hero_1440.jpg') no-repeat scroll center;
-  background-size: 100%;
-  position: relative;
-  margin-bottom: 30px;
-}
-
 h1{
   line-height: 300px;
     color: #333333;
@@ -81,44 +73,10 @@ a>h2{
 </head>
 <body>
 
-      <header>
+    <?php include('includes/db.php');
+    include("header.php");
 
-         <div class="hello"><?php
-include('includes/db.php');
-            ?>
-            
-          <p id="profil" style="margin:20px 70px;"> <?= $_SESSION['users']['pseudo']."  ";
-            ?> </p>
-
-         <div class="pp icon" style="background-color:#fff;width:50px;height:50px;position: absolute;right: 10px;top: 10px;">
-         <?php 
-         $request= $pdo->query('SELECT*FROM users WHERE id="'.$_SESSION['users']['id'].'" ');
-         $result=$request->fetchAll();
-          ?> 
-         <img src="<?=$result['0']['avatar']?>" alt="user" style="height:50px">
-      </div>
-
-            <ul class="profil_nav">
-               <li><a href="profil_page.php?id=<?=$_SESSION['users']['id']?>">Profil</a></li>
-               <li> <a href="update_profil.php?id=<?=$_SESSION['users']['id']?>">Modifier Profil</a></li>
-               <li>  <a href="logout.php"> <i class="fa fa-sign-out"></i> Log out</a></li>   
-            </ul>
-           </div>
-
-         <a href="accueil.php">
-            <h1>Forum</h1>
-         </a>
-
-
-   <div class="nav">
-         <a href="liste.php">Liste des membres</a>
-        
-   </div>
-
-     <form action="search.php" method="post"><input type="text" name="search" placeholder="Search" id="search"></form>
-      </header>
-
-    <?php 
+   
 $dsn = 'mysql:host=localhost;dbname=forumlepoles';
 $user = 'root';
 $pass = '';

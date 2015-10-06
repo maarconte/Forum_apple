@@ -11,12 +11,14 @@ if ( empty($_SESSION['users']) ) {
 
 if (!empty($_POST)){
 
-	$insert_topic=new Forum($pdo);
+	$insert_topic= new Forum($pdo);
 
 	$insert_topic->creerTopic(
 	$_SESSION['users']['id'],
 	$_POST['title'],
-	$_POST['description']
+	$_POST['description'],
+	$_POST['categorie']
+
 	
 	);
 

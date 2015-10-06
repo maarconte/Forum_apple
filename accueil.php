@@ -2,90 +2,38 @@
 <html lang="fr">
    <head>
       <meta charset="UTF-8">
-      <title>Document</title>
+      <title>Accueil</title>
       <link rel="stylesheet" type="text/css" href="css/normalize.css">
-      <link rel="stylesheet" type="text/css" href="css/connect.css">
       <link rel="stylesheet" type="text/css" href="css/accueil.css">
+      <link rel="stylesheet" type="text/css" href="css/connect.css">
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
       <link rel="stylesheet" type="text/css" href="font-awesome-4.3.0/css/font-awesome.css">
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
       <!--[if IE]>
       <script type="text/javascript" src="js/modernizr.custom.78869.js"></script>
       <![endif]-->
-   <script type="text/javascript">
-$(function(){
-
-   $('.icon').click(function(e){
-      $('.profil_nav').toggle();
-         e.stopPropagation();
-      });
-});
-
-</script>
-
    </head>
    <body>
-      <header>
-
-
-         <div class="hello"><?php
-include('includes/db.php');
-            ?>
-            
-          <p id="profil" style="margin:20px 70px;"> <?= $_SESSION['users']['pseudo']."  ";
-            ?> </p>
-
-         <div class="pp icon" style="background-color:#fff;width:50px;height:50px;position: absolute;right: 10px;top: 10px;">
-         <?php 
-         $request= $pdo->query('SELECT*FROM users WHERE id="'.$_SESSION['users']['id'].'" ');
-         $result=$request->fetchAll();
-          ?> 
-         <img src="<?=$result['0']['avatar']?>" alt="user" style="height:50px">
-      </div>
-
-            <ul class="profil_nav">
-               <li><a href="profil_page.php?id=<?=$_SESSION['users']['id']?>">Profil</a></li>
-               <li> <a href="update_profil.php?id=<?=$_SESSION['users']['id']?>">Modifier Profil</a></li>
-               <li>  <a href="logout.php"> <i class="fa fa-sign-out"></i> Log out</a></li>   
-            </ul>
-           </div>
-
-         <a href="accueil.php">
-            <h1>Forum</h1>
-         </a>
-
-
-   <div class="nav">
-         <a href="liste.php">Liste des membres</a>  
-   </div>
-
-   <form action="search.php" method="post"><input type="text" name="search" placeholder="Search" id="search"></form>
-
-      </header>
-
       <?php 
-
-         $request = $pdo->query( 'SELECT * FROM topics ORDER BY creation DESC;' );
-         $result = $request->fetchAll();
-         $ligne=count($result);
+         include('includes/db.php');
+         include("header.php"); 
          
-                 
-
-
-    /*     print_r($result2);
-         die();*/
-                 
-           
+         $forum= new Forum($pdo);
+         $listeTopics = $forum->selectTopics();
+         $ligne   = count($listeTopics);
          
-          ?>
-      <a href="formulaire_topic.php">
-         <h2>Nouveau topic <i class="fa fa-plus"></i></h2>
-      </a>
+               ?>
+      <h2>
+         <a href="formulaire_topic.php" class="hvr-icon-forward">
+            Nouveau topic 
+         </a>
+         </i>
+      </h2>
       <table>
          <thead>
             <tr>
                <th>Topics</th>
+               <th >Catégorie</th>
                <th>Auteurs</th>
                <th >Dates</th>
             </tr>
@@ -93,28 +41,47 @@ include('includes/db.php');
          <tbody>
             <?php for ($i=0; $i<$ligne;$i++){ ?>
             <tr>
-               <td class="topic"><a href="topic.php?id=<?=$result[$i]['id']?>"><?=$result[$i]['title']?></a></td>
-               
+               <td class="topic"><a href="topic.php?id=<?=$listeTopics[$i]['id']?>"><?=$listeTopics[$i]['title']?></a></td>
+               <td class="creatorId">
+                  <a href="categories.php?id=<?=$listeTopics[$i]['categorieId']?>"> <?php 
+                     $categories = $forum->selectCategoriesTopics($listeTopics[$i]['categorieId']);
+                     echo $categories[0]['name'];
+                     ?>
+                  </a>
+               </td>
                <td class="creatorId"> 
-
-<?php 
-
-         $request2= $pdo->query('SELECT*FROM users WHERE id="'.$result[$i]['creatorId'].'" ');
-         $result2=$request2->fetchAll();
-         
-?>
-               <a href="profil_page.php?id=<?=$result[$i]['creatorId']?>"><?php 
-                  $request2 = $pdo->query( 'SELECT * FROM users WHERE id="' .$result[$i]['creatorId']. '"' );
-                  $result2 = $request2->fetchAll();
-                  echo $result2[0]['pseudo'];
-                  ?></a> </td>
-               <td class="date"> <a href="#"><?=$result[$i]['creation']?></a></td>
+                  <?php 
+                     $creatorId = $forum->selectCreatorId($listeTopics[$i]['creatorId']);
+                      
+                     ?>
+                  <a href="profil_page.php?id=<?=$listeTopics[$i]['creatorId']?>"><?php 
+                     echo $creatorId[0]['pseudo'];
+                     ?></a> 
+               </td>
+               <td class="date"> <?=$listeTopics[$i]['creation']?></td>
             </tr>
             <?php }
                ?>
          </tbody>
       </table>
-
-
+      <table>
+         <thead>
+            <tr>
+               <th>Catégories</th>
+               <th>Topics</th>
+               <th>Dernier ajout</th>
+            </tr>
+         </thead>
+         <tbody>
+            <?php   
+               foreach  ($listeCategories=$forum->selectCategories() as $row) { ?>
+            <tr>
+               <td class="topic"><a href="categories.php?id=<?=$row['categorieId']?>"> <?php print $row['name'] ?></a></td>
+               <td class="creatorId"><?php print  $row['nombre'] ?></td>
+               <td class="date"><?php print  $row['creation'] ?></td>
+            </tr>
+            <?php  } ?> 
+         </tbody>
+      </table>
    </body>
 </html>
