@@ -1,6 +1,7 @@
 <?php
 
 include('includes/db.php');
+include('includes/forum.php');
 
 $dsn = 'mysql:host=localhost;dbname=forumlepoles';
 $user = 'root';
@@ -12,9 +13,13 @@ $pdo = new PDO(
 	$pass
 );
 
+$forum=new Forum($pdo);
+$update=$forum->updateTopic(
+	$_POST['title'],
+	$_POST['description'],
+	$_GET['id']
 
-$request= $pdo->query('UPDATE topics SET  title="'.$_POST['title'].'", description= "'.$_POST['description'].'" WHERE  id="'.$_GET['id'].'"');
-$result=$request->fetchAll();
+	);
 
 
 header('Location: profil.php?id='.$_SESSION["users"]["id"].'');

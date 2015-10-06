@@ -2,25 +2,18 @@
 
 session_destroy();
 
-$dsn = 'mysql:host=localhost;dbname=forumlepoles';
-$user = 'root';
-$pass = '';
+include('includes/db.php');
+include('includes/forum.php');
 
-$pdo = new PDO(
-	$dsn,
-	$user,
-	$pass
-);
+$forum=new Forum($pdo);
+$connexion=$forum->connexion(
+	$_POST['email'],
+	$_POST['password']
 
-$request = $pdo->query(
-	'SELECT * FROM users WHERE email="' . $_POST['email'] . '" AND password = "' . $_POST['password']. '";'
-);
-
-$result = $request->fetchAll();
-
-if ( count($result) > 0 ) {
+	);
+if ( count($connexion) > 0 ) {
 	
-	$_SESSION['user'] = $result[0];
+	$_SESSION['user'] = $connexion[0];
 	header('Location: admin.php');
 
 } else {

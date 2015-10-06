@@ -29,7 +29,7 @@ class Forum
 //Connexion
 
     function connexion($email,$password){
-    	return$this->pdo->query('SELECT * FROM users WHERE email="'.$email.'" AND password = "'.$password.'";')->fetchAll();
+    	return $this->pdo->query('SELECT * FROM users WHERE email="'.$email.'" AND password = "'.$password.'";')->fetchAll();
 
     }
 
@@ -76,7 +76,7 @@ class Forum
 
 // Creer Topic
 
-    function creerTopic($id, $title, $description, $categorie)
+    function creerTopic( $title, $description,$id,$categorie)
     {
         $this->pdo->query('INSERT INTO  topics ( title,description,creatorId,creation,categorieId ) VALUES ("' . $title . '", "' . $description . '","' . $id . '",NOW(),"' . $categorie . '");');
     }
@@ -143,6 +143,14 @@ class Forum
 
  	}
 
+ // Afficher Categorie
+
+ 	function afficherCategorie($id){
+ 		return $this->pdo->query('SELECT * FROM categories  WHERE id = "'.$id.'" ;')->fetchAll();
+
+ 	}
+
+
 // Liste des Topics de la Categorie
 
  	function listeTopicsCategorie($id){
@@ -150,7 +158,20 @@ class Forum
 
  	}
 
+// Delete Topic
 
+ 	function deleteTopic($id)
+ 	{
+ 		$this->pdo->query('DELETE FROM topics WHERE id="'.$id.'"');
+
+ 	}
+
+// Update Topic
+
+ 	function updateTopic($title, $description,$id)
+ 	{
+ 		$this->pdo->query('UPDATE topics SET  title="'.$title.'", description= "'.$description.'" WHERE  id="'.$id.'"');
+ 	}
     
     
 }

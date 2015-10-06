@@ -1,19 +1,11 @@
 <?php
 
 include('includes/db.php');
+include('includes/forum.php');
 
-$dsn = 'mysql:host=localhost;dbname=forumlepoles';
-$user = 'root';
-$pass = '';
+$forum=new Forum($pdo);
+$delete=$forum->deleteTopic($_GET['id']);
 
-$pdo = new PDO(
-	$dsn,
-	$user,
-	$pass
-);
-
-$request= $pdo->query('DELETE FROM topics WHERE id="'.$_GET['id'].'"');
-$result=$request->fetchAll();
 header('Location: update_profil.php?id='.$_SESSION["users"]["id"].'');
 
 
