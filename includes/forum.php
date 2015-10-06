@@ -36,7 +36,7 @@ class Forum
 
 // Afficher Avatar
     
-    function selectAvatar($id){
+    function selectUser($id){
     	return $this->pdo->query('SELECT*FROM users WHERE id="'.$id.'" ')->fetchAll();
     }
 
