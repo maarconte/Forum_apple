@@ -1,16 +1,18 @@
 <?php
 
 include('includes/db.php');
+include('includes/forum.php');
 
-$request = $pdo->query(
-	'SELECT * FROM users WHERE email="' . $_POST['email'] . '" AND password = "' . $_POST['password']. '";'
-);
+$forum=new Forum($pdo);
+$connexion=$forum->connexion(
+	$_POST['email'],
+	$_POST['password']
 
-$result = $request->fetchAll();
+	);
 
-if ( count($result) > 0 ) {
+if ( count($connexion) > 0 ) {
 	
-	$_SESSION['users'] = $result[0];
+	$_SESSION['users'] = $connexion[0];
 	header('Location: accueil.php');
 
 } else {

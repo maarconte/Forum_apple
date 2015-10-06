@@ -75,6 +75,7 @@ a>h2{
 
     <?php include('includes/db.php');
     include("header.php");
+    /*include('includes/forum.php');*/
 
    
 $dsn = 'mysql:host=localhost;dbname=forumlepoles';

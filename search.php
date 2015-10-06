@@ -26,22 +26,14 @@ $(function(){
 
    </head>
    <body>
-        <?php include('includes/db.php');
+        <?php 
+         include('includes/db.php');
          include("header.php"); 
+         include('includes/forum.php');
 
-$dsn = 'mysql:host=localhost;dbname=forumlepoles';
-$user = 'root';
-$pass = '';
-
-$pdo = new PDO(
-	$dsn,
-	$user,
-	$pass
-);
-
-         $request = $pdo->query( 'SELECT * FROM topics WHERE title LIKE "%'.$_POST['search'].'%" ORDER BY title;' );
-         $result = $request->fetchAll();
-         $ligne=count($result); 
+         $forum= new Forum($pdo);
+         $searchTopic=$forum->searchTopic($_POST['search']);
+         $ligne=count($searchTopic); 
 
      
         for ($i=0; $i <= $ligne ; $i++) { 
@@ -57,13 +49,13 @@ $pdo = new PDO(
          </thead>
          <tbody>
          	<tr>
-         	<td class="topic"><a href="topic.php?id=<?=$result[$i]['id']?>"><?=$result[$i]['title']?></a></td>
-			<td class="creatorId"><a href="profil_page.php?id=<?=$result[$i]['creatorId']?>"><?php 
-                  $request2 = $pdo->query( 'SELECT * FROM users WHERE id="' .$result[$i]['creatorId']. '"' );
+         	<td class="topic"><a href="topic.php?id=<?=$searchTopic[$i]['id']?>"><?=$searchTopic[$i]['title']?></a></td>
+			<td class="creatorId"><a href="profil_page.php?id=<?=$searchTopic[$i]['creatorId']?>"><?php 
+                  $request2 = $pdo->query( 'SELECT * FROM users WHERE id="' .$searchTopic[$i]['creatorId']. '"' );
                   $result2 = $request2->fetchAll();
                   echo $result2[0]['pseudo'];
                   ?></a> </td>
-			 <td class="date"> <?=$result[$i]['creation']?></td>
+			 <td class="date"> <?=$searchTopic[$i]['creation']?></td>
          	<?php die(); ?>         	
 			</tr>
 

@@ -28,8 +28,10 @@ $(function(){
 </script>
 </head>
 <body>
-<?php include('includes/db.php');?>
-<?php include("header.php"); ?>
+<?php include('includes/db.php');
+ include("header.php"); 
+?>
+
 
 
 <div class="container" >
@@ -39,13 +41,14 @@ $(function(){
 <form action="insert_topic.php" method="post" >
  <select name="categorie" >  
 
-        <?php $request = $pdo->query( 'SELECT * FROM categories ' );
-         $result = $request->fetchAll();
-         $ligne=count($result);
+        <?php 
+        $forum= new Forum($pdo);
+        $listeCategories=$forum->listeCategories();
+         $ligne=count($listeCategories);
           
           for ($i=0;  $i<$ligne ; $i++) { ?>
 
-          	<option name="categorie" value="<?=$result[$i]['id']?>"><?=$result[$i]['name']?></option>
+          	<option name="categorie" value="<?=$listeCategories[$i]['id']?>"><?=$listeCategories[$i]['name']?></option>
 
          <?php } ?>
 </select> 
