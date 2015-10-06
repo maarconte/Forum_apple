@@ -172,7 +172,29 @@ class Forum
  	{
  		$this->pdo->query('UPDATE topics SET  title="'.$title.'", description= "'.$description.'" WHERE  id="'.$id.'"');
  	}
-    
+
+// Update Profil  
+
+	function updateProfil($pseudo,$email,$id)
+	{
+		$this->pdo->query('UPDATE users SET  pseudo="'.$pseudo.'", email= "'.$email.'" WHERE  id="'.$id.'"');
+
+	} 
+
+// Update Avatar
+
+	function updateAvatar($avatar,$id)
+	{
+		$this->pdo->query('UPDATE users SET  avatar="'.$avatar.'" WHERE  id="'.$id.'"');
+
+	}
+
+// Afficher Topic dans le lequel l'utilisateur a laissé un message
+
+	function topicActiv($id){
+		return $this->pdo->query('SELECT * FROM topics WHERE id="' .$id. '"')->fetchAll();
+
+	}
     
 }
 

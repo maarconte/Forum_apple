@@ -111,9 +111,7 @@ line-height: 40px;
  <body>
  <?php 
 
-$request= $pdo->query('SELECT*FROM users WHERE id="'.$_GET['id'].'" ');
-$result=$request->fetchAll();
-$ligne=count($result);
+
 
  ?>
  	         
@@ -121,8 +119,8 @@ $ligne=count($result);
 	<div class="container">
 		 <div class="pp">
             <?php 
-         $request= $pdo->query('SELECT*FROM users WHERE id="'.$_GET['id'].'" ');
-         $result=$request->fetchAll();
+         $forum=new Forum($pdo);
+         $result=$forum->selectUser($_GET['id']);
          $ligne=count($result);
          
           ?> 
@@ -141,12 +139,6 @@ $ligne=count($result);
 
 </form>
 
-      <?php 
-         $request= $pdo->query('SELECT*FROM users WHERE id="'.$_GET['id'].'" ');
-         $result=$request->fetchAll();
-         $ligne=count($result);
-         
-          ?> 
       <h3><?=$result[0]['pseudo']?></h3>
       <ul id="menu">
          <li class="onglet active">
@@ -155,8 +147,7 @@ $ligne=count($result);
           <a href="update_profil_messages.php?id=<?=$_GET['id']?>"><h4>Derniers messages:</h4></a></li> </ul>
       
       <?php 
-         $request= $pdo->query('SELECT*FROM topics WHERE creatorId="'.$_GET['id'].'" ');
-         $result=$request->fetchAll();
+         $result=$forum->afficherTopicUser($_GET['id']);
          $ligne=count($result);
          
          for ( $i = 0; $i < count($result); $i++ ) {

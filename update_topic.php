@@ -29,16 +29,17 @@ $(function(){
 <body>
  <?php include('includes/db.php');
   include("header.php"); 
-  
-$request=$pdo->query('SELECT*FROM topics WHERE id="'.$_GET['id'].'" ');
-$result=$request->fetchALL();
+
+
+  $forum=new Forum($pdo);
+  $topic=$forum->afficherTopic($_GET['id']);
 ?>
 
 <div class="container" >
 <h2>Topic</h2>
-<form action="update_topic_db.php?id=<?=$result[0]['id']?>" method="post" >
-  <input type="text" value="<?=$result[0]['title']?>" name="title" >
-  <textarea placeholder="<?= $result[0]['description']?>" name="description"><?= $result[0]['description']?></textarea>
+<form action="update_topic_db.php?id=<?=$topic[0]['id']?>" method="post" >
+  <input type="text" value="<?=$topic[0]['title']?>" name="title" >
+  <textarea placeholder="<?= $topic[0]['description']?>" name="description"><?= $topic[0]['description']?></textarea>
   <input type="submit">
 </form>
 </div>

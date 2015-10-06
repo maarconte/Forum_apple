@@ -119,9 +119,9 @@ line-height: 40px;
  <body>
  <?php 
 
-$request= $pdo->query('SELECT*FROM users WHERE id="'.$_GET['id'].'" ');
-$result=$request->fetchAll();
-$ligne=count($result);
+         $forum=new Forum($pdo);
+         $result=$forum->selectUser($_GET['id']);
+         $ligne=count($result);
 
  ?>
 
@@ -138,13 +138,8 @@ $ligne=count($result);
 <input type="submit" value="Modifier" />
 
 </form>
-
-         <?php 
-         $request= $pdo->query('SELECT*FROM users WHERE id="'.$_GET['id'].'" ');
-         $result=$request->fetchAll();
-         $ligne=count($result);
          
-          ?>
+         
       <h3><?=$result[0]['pseudo']?></h3>
       <ul id="menu">
          <li class="onglet ">
@@ -154,19 +149,19 @@ $ligne=count($result);
           
       
       <?php 
-        $request= $pdo->query('SELECT*FROM messages WHERE creatorId="'.$_GET['id'].'" ');
-        $result=$request->fetchAll();
-        $ligne=count($result);
+
         
-        for ( $i = 0; $i <= 2; $i++ ) {
+         $result=$forum->selectMessagesUser($_GET['id']);
+         $ligne=count($result);
+        
+        for ( $i = 0; $i <= ($ligne-1); $i++ ) {
         
         if ($ligne > 0) { ?>
      <ul class="result">
         <li><h3><a href="topic.php?id=<?=$result[$i]['topicId']?>"><?php 
-           $request2 = $pdo->query( 'SELECT * FROM topics WHERE id="' .$result[$i]['topicId']. '"' );
-           $result2 = $request2->fetchAll();
            
-           
+
+          $result2=$forum->topicActiv($result[$i]['topicId']);
            echo $result2[0]['title'];?>
            </a>
         </h3>

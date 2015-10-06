@@ -70,7 +70,7 @@
                <div class="pp icon " style="background-color:#fff;width:50px;height:50px;position: absolute;right: 10px;top: 10px; margin-bottom:70px;">
                   <?php 
                      $forum= new Forum($pdo);
-                     $avatar = $forum->selectAvatar($_SESSION['users']['id']);
+                     $avatar = $forum->selectUser($_SESSION['users']['id']);
                      ?> 
                   <img src="<?=$avatar['0']['avatar']?>" alt="user" style="height:50px">
                </div>

@@ -1,20 +1,11 @@
 <?php
 
+
 include('includes/db.php');
+include('includes/forum.php');
 
-$dsn = 'mysql:host=localhost;dbname=forumlepoles';
-$user = 'root';
-$pass = '';
-
-$pdo = new PDO(
-	$dsn,
-	$user,
-	$pass
-);
-
-
-$request= $pdo->query('UPDATE users SET  avatar="'.$_POST['avatar'].'" WHERE  id="'.$_GET['id'].'"');
-$result=$request->fetchAll();
+    $forum= new Forum($pdo);
+	$result=$forum->updateAvatar($_POST['avatar'],$_GET['id']);
 
 header('Location: profil.php?id='.$_SESSION["id"].'');
 ?>
