@@ -125,7 +125,7 @@ class Forum
 
  	function listeCategories()
  	{
- 		return $this->pdo->query('SELECT * FROM categoriesliste')->fetchAll();
+ 		return $this->pdo->query('SELECT * FROM categories')->fetchAll();
 
  	}  
 
@@ -143,7 +143,12 @@ class Forum
 
  	}
 
+// Liste des Topics de la Categorie
 
+ 	function listeTopicsCategorie($id){
+ 		return $this->pdo->query('SELECT * FROM topics  WHERE categorieId = "'.$id.'" ORDER BY creation DESC;')->fetchAll();
+
+ 	}
 
 
     

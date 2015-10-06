@@ -43,9 +43,9 @@ h2{
       <?php include('includes/db.php');
          include("header.php"); 
          
-              $request = $pdo->query( 'SELECT * FROM topics  WHERE categorieId = "'.$_GET['id'].'" ORDER BY creation DESC;' );
-              $result = $request->fetchAll();
-              $ligne=count($result);
+              $forum=new Forum($pdo);
+              $listeTopicsCategorie=$forum->listeTopicsCategorie($_GET['id']);
+              $ligne=count($listeTopicsCategorie);
 
               $sql=$pdo->query('SELECT * FROM categories WHERE id="'.$_GET['id'].'"');
               $result2=$sql->fetchAll();
@@ -56,10 +56,6 @@ h2{
          </div>
           <a href="formulaire_topic.php"><h2>Nouveau topic <i class="fa fa-plus"></i></h2>
       </a>
-
-
-
-
 
  <table>
         <thead>
@@ -73,20 +69,20 @@ h2{
 
            <?php for ($i=0; $i<$ligne;$i++){ ?>
            <tr>
-              <td class="topic"><a href="topic.php?id=<?=$result[$i]['id']?>"><?=$result[$i]['title']?></a></td>
+              <td class="topic"><a href="topic.php?id=<?=$listeTopicsCategorie[$i]['id']?>"><?=$listeTopicsCategorie[$i]['title']?></a></td>
               <td class="creatorId"> 
                  <?php 
-                    $request2= $pdo->query('SELECT*FROM users WHERE id="'.$result[$i]['creatorId'].'" ');
+                    $request2= $pdo->query('SELECT*FROM users WHERE id="'.$listeTopicsCategorie[$i]['creatorId'].'" ');
                     $result2=$request2->fetchAll();
                     
                     ?>
-                 <a href="profil_page.php?id=<?=$result[$i]['creatorId']?>"><?php 
-                    $request2 = $pdo->query( 'SELECT * FROM users WHERE id="' .$result[$i]['creatorId']. '"' );
+                 <a href="profil_page.php?id=<?=$listeTopicsCategorie[$i]['creatorId']?>"><?php 
+                    $request2 = $pdo->query( 'SELECT * FROM users WHERE id="' .$listeTopicsCategorie[$i]['creatorId']. '"' );
                     $result2 = $request2->fetchAll();
                     echo $result2[0]['pseudo'];
                     ?></a> 
               </td>
-              <td class="date"> <a href="#"><?=$result[$i]['creation']?></a></td>
+              <td class="date"> <a href="#"><?=$listeTopicsCategorie[$i]['creation']?></a></td>
            </tr>
            <?php }
               ?>
