@@ -73,6 +73,7 @@
          <a href="profil_page.php?id=<?=$listeTopics[$i]['creatorId']?>">
             <p class="creator"><?=$creatorId[0]['pseudo']?></p>
          </a>
+         <div class="fb-like"></div>
          <span class="date"><?=$listeTopics[0]['creation'];?></span> 
       </div>
       <div class="post_first" >
