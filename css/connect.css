@@ -42,7 +42,9 @@ h1 {
     margin: 0;
 }
 h1,
-h2 {
+h2,
+h3,
+h4 {
     text-align: center;
 }
 h2{
@@ -50,21 +52,13 @@ h2{
   display: block;
 }
 
-.header_content{
-  max-width: 980px;
-  position: relative;
-  height: 360px;
-
-  margin: 0px auto 0;
-
+a {
+    text-decoration: none;
+    color: #333333;
 }
-.hello {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    text-align: right;
-    z-index: 2;
-}
+
+/* HEADER */
+
 header {  
     position: relative;
     margin: 0;
@@ -72,6 +66,7 @@ header {
     overflow: hidden;
     background:#FFE100;
 }
+/* HEADER > SLIDER */
 
 .csslider1{
   position: absolute;
@@ -80,12 +75,93 @@ header {
   opacity: 0.3;
 
 }
+/* HEADER > CONTENTS > USER */
 
+.hello {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    text-align: right;
+   
+}
+.pp{
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  display: block;
+  margin: 10px 0 10px 95%;
+  position: relative;
+}
+.pp>img{
+  height: 100px;
+  left: -28%;
+  position: absolute;
+
+}
+
+/* HEADER > CONTENTS */
 
 .header_content *{
   z-index: 4;
 
 }
+.header_content{
+  max-width: 980px;
+  position: relative;
+  height: 360px;
+
+  margin: 0px auto 0;
+
+}
+
+/* HEADER > CONTENTS > USER > MENU */
+
+.profil_nav{
+    display: none;
+    position:absolute;
+    top:75px;
+    right:0px;
+    width: auto;
+}
+
+.profil_nav,.profil_nav>li{
+    padding: 5px;
+    margin: 0;
+    list-style: none;
+    text-align: left;
+    background: #1F1002;
+
+}
+
+.profil_nav li{
+   display: block;
+   float: inherit;
+
+}
+
+.profil_nav a{
+     color: #ccc;
+}
+
+.profil_nav:after {
+    bottom: 100%;
+    left: 90%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(51, 51, 51, 0);
+    border-bottom-color: #1F1002;
+    border-width: 5px;
+    margin-left: -5px;
+}
+
+
+
+/* HEADER > CONTENTS > TITLE */
 
 .episodes{
     position: absolute;
@@ -110,11 +186,8 @@ header {
   width: 98px;
 }
 
+/* HEADER > CONTENTS > MENU */
 
-a {
-    text-decoration: none;
-    color: #333333;
-}
 #menu {
     width: 100%;
     position: absolute;
@@ -143,60 +216,8 @@ a {
 
 }
 
-.profil_nav{
-    display: none;
-    position:absolute;
-    top:75px;
-    right:0px;
-    width: auto;
-}
 
-.profil_nav,.profil_nav>li{
-    padding: 5px;
-    margin: 0;
-    list-style: none;
-    text-align: left;
-    background: #1F1002;
-    /* position: relative; */
-
-
-}
-
-.profil_nav li{
-   display: block;
-   float: inherit;
-
-}
-
-
-
-.profil_nav a{
-     color: #ccc;
-}
-
-.profil_nav:after {
-    bottom: 100%;
-    left: 90%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border-color: rgba(51, 51, 51, 0);
-    border-bottom-color: #1F1002;
-    border-width: 5px;
-    margin-left: -5px;
-}
-#profil{
-    background: rgba(255, 255, 255, 0.5);
-    
-    height: 30px;
-    padding: 5px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
+/* HEADER > CONTENTS > SAERCH */
 
  #search{
       border-radius: 2px;
@@ -222,22 +243,16 @@ a {
        width:150px;
    }
 
-   .pp{
-  height: 50px;
-  width: 50px;
-  overflow: hidden;
-  border-radius: 50%;
-  display: block;
-  margin: 10px 0 10px 95%;
-  position: relative;
-}
-.pp>img{
-  height: 100px;
-  left: -28%;
-  position: absolute;
-
-}
-
+ #profil{
+    background: rgba(255, 255, 255, 0.5);
+    
+    height: 30px;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}  
+/* liste.php > Avatar user */
 .pp_liste {
     height: 100px;
     width: 100px;
@@ -272,6 +287,7 @@ a {
   display: none;
 }
 
+/* RESPONSIVE */
 
 @media screen and (max-width: 1080px){
 
