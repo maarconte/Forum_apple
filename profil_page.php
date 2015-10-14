@@ -109,7 +109,7 @@
          <div class="pp">
             <?php 
                $Forum  = new Forum($pdo);
-               $profil = $forum->selectUser($_SESSION['users']['id']);
+               $profil = $forum->selectUser($_GET['id']);
                $ligne  = count($profil);
                
                 ?> 

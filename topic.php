@@ -29,8 +29,8 @@
          font-size: small;
          color:#616161;
          position: absolute;
-         right: 10px;
-         top:10px;
+       
+      
          margin: 0;
          }
          .creator{
@@ -78,21 +78,39 @@
       <div class="post_first" >
          <p><?= $listeTopics[$i]['description'] ?></p>
       </div>
+
+      
+
       <div class="message">
+
          <?php
             $listeMessages = $forum->selectMessages($_GET["id"]);
             $ligne=count($listeMessages);
             
-            for ($i=0; $i<$ligne;$i++){ ?>
+            for ($i=0; $i<$ligne;$i++){ 
+           
+            $messageCreator=$forum->selectMessageCreator($listeMessages[$i]['creatorId']);
+               ?>
+         
+
+
          <div class="post">
-            <p>
-               <?php  
-                  $messageCreator=$forum->selectMessageCreator($listeMessages[$i]['creatorId']);
-                  ?>
-            <h4><?=$messageCreator[0]['pseudo'].": "?></h4>
-            <?= $listeMessages[$i]['message']?></p>
-            </p><span class="date"><?=$listeMessages[0]['creation'];?></span> 
-         </div>
+                  <h4><?=$messageCreator[0]['pseudo']?></h4>
+
+                   <div class="dd">
+                  <?php 
+                     $forum= new Forum($pdo);
+                     $avatar = $forum->selectUser($listeMessages[$i]['creatorId']);
+                     ?> 
+                  <img src="<?=$avatar['0']['avatar']?>" alt="user">
+               </div>
+              <div class="txt">
+
+            <p> <?= $listeMessages[$i]['message']?></p>
+            <span class="date"><?=$listeMessages[0]['creation'];?></span> 
+
+              </div>
+                        </div>
          <?php }
             ?>
       </div>

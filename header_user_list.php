@@ -1,8 +1,9 @@
-            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
    <head>
-      <meta charset="UTF-8">
+      <meta charset="UTF-8">      
       <link rel="stylesheet" href="cssslider_files/csss_engine1/style.css">
+
       <link rel="stylesheet" href="Hover-master/css/hover.css">
       <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -66,13 +67,13 @@
          </div>
          <!-- End cssSlider.com -->
          <div class="header_content">
-            <div class="hello">
-               <div class="pp icon " style="background-color:#fff;width:50px;height:50px;position: absolute;right: 10px;top: 10px; margin-bottom:70px;">
+          <div class="hello">
+               <div class="pp icon">
                   <?php 
                      $forum= new Forum($pdo);
                      $avatar = $forum->selectUser($_SESSION['users']['id']);
                      ?> 
-                  <img src="<?=$avatar['0']['avatar']?>" alt="user" style="height:50px">
+                  <img src="<?=$avatar['0']['avatar']?>" alt="user" >
                </div>
                <ul class="profil_nav" >
                   <li>Bonjour <?= $_SESSION['users']['pseudo']."  ";
@@ -81,23 +82,18 @@
                   <li class="hvr-underline-from-center"> <a href="update_profil.php?id=<?=$_SESSION['users']['id']?>" >Modifier Profil</a></li>
                   <li class="hvr-underline-from-center">  <a href="logout.php"> <i class="fa fa-sign-out"></i> Log out</a></li>
                </ul>
-            </div>
+        </div> 
             <div class="episodes">
                <h1 ><a href="accueil.php" >Episodes </a></h1>
             </div>
             <i class="fa fa-bars" id="btn"></i>
-            <ul class="nav" id="menu_">
+            <ul  id="menu">
                <li><a href="accueil.php" class="hvr-underline-from-center">Accueil</a> </li>
                <li><a href="liste.php" class="hvr-underline-from-center">Liste des membres</a></li>
             </ul>
-            <ul class="nav" id="menu">
-               <li><a href="accueil.php" class="hvr-underline-from-center">Accueil</a> </li>
-               <li><a href="liste.php" class="hvr-underline-from-center">Liste des membres</a></li>
-            </ul>
-            <form action="search_users.php" method="post"><input type="text" name="search" placeholder="Search" id="search"></form>
+             <form action="search_users.php" method="post"><input type="text" name="search" placeholder="Search" id="search"></form>
          </div>
       </header>
    </body>
 </html>
-
-            
+           

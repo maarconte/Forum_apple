@@ -32,7 +32,7 @@
       <table>
          <thead>
             <tr>
-               <th>Topics</th>
+               <th class="topic">Topics</th>
                <th >Catégorie</th>
                <th>Auteurs</th>
                <th >Dates</th>
@@ -41,7 +41,7 @@
          <tbody>
             <?php for ($i=0; $i<$ligne;$i++){ ?>
             <tr>
-               <td class="topic"><a href="topic.php?id=<?=$listeTopics[$i]['id']?>"><?=$listeTopics[$i]['title']?></a></td>
+               <td ><a href="topic.php?id=<?=$listeTopics[$i]['id']?>"> <p><?=$listeTopics[$i]['title']?></p> </a></td>
                <td class="creatorId">
                   <a href="categories.php?id=<?=$listeTopics[$i]['categorieId']?>"> <?php 
                      $categories = $forum->selectCategoriesTopics($listeTopics[$i]['categorieId']);

@@ -14,7 +14,7 @@
 
 .csslider1 {
   display: inline-block;
-  position: relative;
+  position: absolute;
   
   height: 360px;
   

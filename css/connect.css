@@ -49,6 +49,15 @@ h2{
 	font-weight: 600;
   display: block;
 }
+
+.header_content{
+  max-width: 980px;
+  position: relative;
+  height: 360px;
+
+  margin: 0px auto 0;
+
+}
 .hello {
     position: absolute;
     right: 10px;
@@ -65,6 +74,8 @@ header {
 }
 
 .csslider1{
+  position: absolute;
+  top:0;
   z-index:3;
   opacity: 0.3;
 
@@ -104,16 +115,17 @@ a {
     text-decoration: none;
     color: #333333;
 }
-.nav {
+#menu {
     width: 100%;
     position: absolute;
     left: 0;
     bottom: 0;
     list-style: none;
     margin: 0;
+    padding: 0;
 }
 
-.nav li a{
+#menu li a{
     background: #fff;
     display: block;
     padding: 10px;
@@ -126,7 +138,7 @@ a {
      
 }
 
-.nav>a:hover{
+#menu>a:hover{
   background: #FFE100;
 
 }
@@ -134,8 +146,9 @@ a {
 .profil_nav{
     display: none;
     position:absolute;
-    top:70px;
-    right:10px;
+    top:75px;
+    right:0px;
+    width: auto;
 }
 
 .profil_nav,.profil_nav>li{
@@ -144,7 +157,7 @@ a {
     list-style: none;
     text-align: left;
     background: #1F1002;
-    position: relative;
+    /* position: relative; */
 
 
 }
@@ -210,12 +223,12 @@ a {
    }
 
    .pp{
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width: 50px;
   overflow: hidden;
-    border-radius: 50%;
+  border-radius: 50%;
   display: block;
-  margin: 0 auto 30px;
+  margin: 10px 0 10px 95%;
   position: relative;
 }
 .pp>img{
@@ -224,28 +237,63 @@ a {
   position: absolute;
 
 }
-.fa-bars{
+
+.pp_liste {
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+    display: block;
+    margin: 10px auto 10px;
+    position: relative;
+}
+
+.pp_liste>img{
+   height: 100%;
+   margin: 0 auto;
+}
+
+.pp_user{
+       height: 100px;
+    width: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+    display: block;
+    margin: 10px auto 10px;
+    position: relative;
+}
+
+.pp_user>img{
+   width: 100%;
+   left: 0;
+}
+
+#btn{
   display: none;
 }
 
 
 @media screen and (max-width: 1080px){
 
-  .fa-bars{
-    position: absolute;
-    top:10px;
-    left: 10px;
-    font-size: 30px;
-  }
-.nav{
+  #btn{
+    display: block;
+    position: fixed;
+    left: 0px;
+    font-size: 20px;
+    top: 0px;
+    padding: 20px;
+    background: rgb(255, 225, 0) none repeat scroll 0% 0%;
+}
+
+#menu{
   display: none;
   height: auto;
   bottom: inherit;
-  top:40px;
-  left: 10px;
+  top:70px;
+  left: 0px;
  
 }
-  .nav,.nav li{
+  #menu,#menu li{
     background: #1F1002;;
     padding: 5px;
     margin: 0;
@@ -257,7 +305,7 @@ a {
     
   }
 
-  .nav  li a{ 
+  #menu  li a{ 
     color: #ccc;
     float: inherit;
     background: #1F1002;
@@ -266,7 +314,7 @@ a {
      padding: 5px;
   }
 
-  .nav:after {
+  #menu:after {
     bottom: 100%;
     right: 90%;
     border: solid transparent;

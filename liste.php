@@ -54,6 +54,9 @@
          color: #333333;
          font: 16px 'Open Sans'; 
          }
+
+         
+
       </style>
    </head>
    <?php
@@ -73,23 +76,27 @@
       <div class="liste">
          <div class="row">
             <?php
-               if (empty($liste[$i]['avatar'])) {
-               ?>
-            <div class="pp">
-               <img src="../images/user.png" alt="user" style="left:inherit">
-            </div>
-            <a href="profil_page.php?id=<?= $liste[$i]['id'] ?>">
-               <h2><?= $liste[$i]['pseudo'] ?></h2>
-            </a>
-            <?php
-               }
-               ?>
-            <div class="pp">
-               <img src="<?= $liste[$i]['avatar'] ?>" alt="user">
-            </div>
-            <a href="profil_page.php?id=<?= $liste[$i]['id'] ?>">
-               <h2><?= $liste[$i]['pseudo'] ?></h2>
-            </a>
+                  if (empty($liste[$i]['avatar'])) {
+                  ?>
+                     <div class="pp_user">
+                        <img src="../images/user.png" alt="user" style="left:inherit">
+                     </div>
+                     <a href="profil_page.php?id=<?= $liste[$i]['id'] ?>">
+                        <h2><?= $liste[$i]['pseudo'];  ?></h2>
+                     </a>
+               <?php
+              
+               } 
+
+
+           else { ?>
+                  <div class="pp_liste">
+                     <img src="<?= $liste[$i]['avatar'] ?>" alt="user">
+                  </div>
+                  <a href="profil_page.php?id=<?= $liste[$i]['id'] ?>">
+                     <h2><?= $liste[$i]['pseudo'] ?></h2>
+                  </a>
+                 <?php } ?>
          </div>
       </div>
       <?php
