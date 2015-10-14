@@ -33,13 +33,22 @@
 
 <input type="submit" />
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.5&appId=1506494756332119";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<?php 
+require 'facebook-php-sdk-v4-master/src/Facebook/Facebook.php';    
+$facebook = new Facebook(array(  'appId'  => '1506494756332119',  'secret' => '194f00918b03172666d619ee06b9d4f9',  'cookie' => true,));    
+$session = $facebook->getSession();    
+$me = null;    
+
+if($session){    
+ try {    
+  $uid = $facebook->getUser();    
+  $me = $facebook->api('/me');    
+ }    
+ catch(FacebookApiException $e){    
+  error_log($e);    
+ }    
+} 
+?>
 
 
 <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>

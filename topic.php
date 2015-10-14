@@ -1,8 +1,16 @@
-<!DOCTYPE html>
+<?php 
+         include('includes/db.php');
+         include("header.php"); 
+         
+         $forum= new Forum($pdo);
+         $listeTopics = $forum->afficherTopic($_GET["id"]);
+         $ligne   = count($listeTopics);
+         
+?><!DOCTYPE html>
 <html lang="fr">
    <head>
       <meta charset="UTF-8">
-      <title>Document</title>
+      <title><?=$listeTopics[0]['title']?> - Episodes</title>
       <link rel="stylesheet" type="text/css" href="css/normalize.css">
       <link rel="stylesheet" type="text/css" href="css/connect.css">
       <link rel="stylesheet" type="text/css" href="css/topic.css">
@@ -29,13 +37,16 @@
          font-size: small;
          color:#616161;
          position: absolute;
-       
-      
          margin: 0;
+         }
+
+         .creation{
+            top:0;
+            right: 100px;
          }
          .creator{
          position: absolute;
-         left: 10px;
+         left: 100px;
          top:10px;
          margin: 0;
          }
@@ -50,31 +61,49 @@
          .post{
          position: relative;
          }
+         h2{
+            display: block;
+            margin: 0 auto;
+            width: 980px;
+         }
          h4{
          font-weight: 600;
          margin: 0;
          }
+
+         #twitter-widget-0{
+            position: absolute;
+            top:0;
+         }
+         .fb_iframe_widget{
+            position: relative;
+         /* left: 980px;
+         top:0px; */
+}
+      
       </style>
    </head>
+
    <body>
-      <?php include('includes/db.php');
-         include("header.php"); 
-         
-         $forum= new Forum($pdo);
-         $listeTopics = $forum->afficherTopic($_GET["id"]);
-         $ligne   = count($listeTopics);
-         
-         
+
+      <?php 
          for ($i=0; $i <$ligne ; $i++){ ?>
+
       <div class="head_post">
          <h2><?php 
             $creatorId = $forum->selectCreatorId($listeTopics[$i]['creatorId']);
             echo $listeTopics[$i]['title']?></h2>
+            
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="Episodes" data-lang="fr" data-count="none">Tweeter</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+             <div class="fb-like" data-layout="button" ></div>
          <a href="profil_page.php?id=<?=$listeTopics[$i]['creatorId']?>">
             <p class="creator"><?=$creatorId[0]['pseudo']?></p>
          </a>
-         <div class="fb-like"></div>
-         <span class="date"><?=$listeTopics[0]['creation'];?></span> 
+
+        
+
+         <span class="date creation"><?=$listeTopics[0]['creation'];?></span> 
       </div>
       <div class="post_first" >
          <p><?= $listeTopics[$i]['description'] ?></p>
@@ -124,5 +153,7 @@
          }?>
       </tbody>
       </table>
+      <script src="js/facebook_login.js"> </script>
+      <script src="js/like_FB.js"> </script>
    </body>
 </html>

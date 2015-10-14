@@ -1,34 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-   <head>
-      <meta charset="UTF-8">      
-      <link rel="stylesheet" href="cssslider_files/csss_engine1/style.css">
-
-      <link rel="stylesheet" href="Hover-master/css/hover.css">
-      <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-      <!--[if IE]>
-      <script type="text/javascript" src="js/modernizr.custom.78869.js"></script>
-      <![endif]-->
-      <script type="text/javascript">
-         $(function(){
-         
-            $('.icon').click(function(e){
-               $('.profil_nav').toggle(400);
-                  e.stopPropagation();
-               });
-         });
-         
-               $(function(e){
-                  $('#btn').click(function(){
-                     $('#menu').toggle(400);
-                  }); 
-               });
-         
-      </script>
-   </head>
-   <body>
-      <?php 
+     <?php 
          include('includes/forum.php');
       ?>
       <header>
@@ -94,5 +64,20 @@
             <form action="search.php" method="post"><input type="text" name="search" placeholder="Search" id="search"></form>
          </div>
       </header>
-   </body>
-</html>
+
+            <script type="text/javascript">
+         $(function(){
+         
+            $('.icon').click(function(e){
+               $('.profil_nav').toggle(400);
+                  e.stopPropagation();
+               });
+         });
+         
+               $(function(e){
+                  $('#btn').click(function(){
+                     $('#menu').toggle(400);
+                  }); 
+               });
+         
+      </script>

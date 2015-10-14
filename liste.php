@@ -2,7 +2,7 @@
 <html lang="fr">
    <head>
       <meta charset="UTF-8">
-      <title>Document</title>
+      <title>Liste des membres</title>
       <link rel="stylesheet" type="text/css" href="css/normalize.css">
       <link rel="stylesheet" type="text/css" href="css/connect.css">
       <link rel="stylesheet" type="text/css" href="css/topic.css">
