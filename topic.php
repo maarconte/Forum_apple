@@ -33,16 +33,7 @@
       <![endif]-->
 
       <style>
-         .head_post{
-         position:relative;
-         background:#FFE100;
-         height: 60px;
-         line-height: 60px;
-         margin: 0 0 10px;
-         -webkit-box-sizing: border-box;
-         -moz-box-sizing: border-box;
-         box-sizing: border-box;
-         }
+         
          .date{
          font-size: small;
          color:#616161;
@@ -50,24 +41,9 @@
          margin: 0;
          }
 
-         .creation{
-            top:0;
-            right: 100px;
-         }
-         .creator{
-         position: absolute;
-         left: 100px;
-         top:10px;
-         margin: 0;
-         }
-         .post_first{
-         width: 800px;
-         margin: 0 auto 30px;
-         padding: 10px;
-         -webkit-box-sizing: border-box;
-         -moz-box-sizing: border-box;
-         box-sizing: border-box;
-         }
+        
+         
+         
          .post{
          position: relative;
          }
@@ -76,10 +52,7 @@
             margin: 0 auto;
             width: 980px;
          }
-         h4{
-         font-weight: 600;
-         margin: 0;
-         }
+
 
          #twitter-widget-0{
             position: absolute;
@@ -161,8 +134,6 @@
       </form>
       <?php 
          }?>
-      </tbody>
-      </table>
       <script src="js/facebook_login.js"> </script>
       <script src="js/like_FB.js"> </script>
    </body>

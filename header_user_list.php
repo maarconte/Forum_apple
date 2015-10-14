@@ -54,7 +54,7 @@
                </ul>
         </div> 
             <div class="episodes">
-               <h1 ><a href="accueil.php" >Episodes </a></h1>
+               <h1 ><a href="accueil.php" >Episodes</a></h1>
             </div>
             <i class="fa fa-bars" id="btn"></i>
             <ul  id="menu">
