@@ -476,6 +476,15 @@ tr>td.date {
     
     width: 100px;
 }
+
+
+.container{
+  width: 800px;
+  margin: 30px auto;
+  background-color: #F7F7F7;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+}
 /* profil_page.php > MENU */
 
 #menu_profil {

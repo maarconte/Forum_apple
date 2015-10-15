@@ -29,6 +29,7 @@
          margin: 0 auto ;
          margin-top: 60px;
          padding: 0;
+         display: block;
 
          }
          .row{
@@ -51,8 +52,9 @@
       include('includes/db.php');
       ?>
    <body> 
+   
    <?php  include("header_user_list.php");?>
-    <div class="liste">
+    <ul class="liste">
       <?php 
           
          
@@ -64,7 +66,7 @@
               for ($i = 0; $i < $ligne; $i++) {
          ?>
     
-         <div class="row">
+         <li class="row">
             <?php
                   if (empty($liste[$i]['avatar'])) {
                   ?>
@@ -87,11 +89,11 @@
                      <h2><?= $liste[$i]['pseudo'] ?></h2>
                   </a>
                  <?php } ?>
-         </div>
+         </li>
      
       <?php
          } ?>
- </div>
+ </ul>
      
 
 <?php include("footer.php"); ?> 
