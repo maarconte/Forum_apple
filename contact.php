@@ -24,6 +24,18 @@
       <![endif]-->
 </head>
 <body>
+      <?php 
+         include('includes/db.php');
+         include("header.php"); ?>
+
+    <form>
+    	<input type="text" name="Objet" placeholder="Objet"/>
+    	<input type="mail" name="mail" placeholder="mail"/>
+    	<textarea name="contact" cols="30" rows="10"></textarea>
+    	<input type="submit" />
+
+
+    </form>
 	
 </body>
 </html>

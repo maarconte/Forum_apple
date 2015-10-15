@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
       <meta charset="UTF-8">
-      <title>Mentions legales - Episodes</title>
+      <title>Condition General D'utilisation - Episodes</title>
       <!-- Slider header -->
       <link rel="stylesheet" href="cssslider_files/csss_engine1/style.css">
       <!-- Favicon -->
@@ -24,6 +24,8 @@
       <![endif]-->
 </head>
 <body>
-	
+	      <?php 
+         include('includes/db.php');
+         include("header.php"); ?>
 </body>
 </html>
