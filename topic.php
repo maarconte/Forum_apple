@@ -80,10 +80,12 @@
                      $forum= new Forum($pdo);
                      $avatar = $forum->selectUser($listeMessages[$i]['creatorId']);
                      ?> 
+                     
                   <img src="<?=$avatar['0']['avatar']?>" alt="user">
                </div>
               <div class="txt">
-
+<span class="likebtn-wrapper" data-theme="lightgray" data-lang="fr" data-white_label="true"></span>
+<script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
             <p> <?= $listeMessages[$i]['message']?></p>
             <span class="date date_message"><?=$listeMessages[0]['creation'];?></span> 
 
