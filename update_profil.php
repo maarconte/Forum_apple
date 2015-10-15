@@ -64,7 +64,6 @@ include("header.php"); ?>
 
 </form>
 
-      <h3><?=$result[0]['pseudo']?></h3>
       <ul id="menu_profil">
          <li class="onglet active">
           <a href="update_profil.php?id=<?=$_GET['id']?>"><h4>Topics: </h4></a>  </li>

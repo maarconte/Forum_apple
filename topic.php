@@ -20,7 +20,6 @@
       <!--  CSS -->
       <link rel="stylesheet" type="text/css" href="css/normalize.css">
       <link rel="stylesheet" type="text/css" href="css/connect.css">
-      <link rel="stylesheet" type="text/css" href="css/topic.css">
       <!-- Font -->
        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
@@ -86,7 +85,7 @@
               <div class="txt">
 
             <p> <?= $listeMessages[$i]['message']?></p>
-            <span class="date"><?=$listeMessages[0]['creation'];?></span> 
+            <span class="date date_message"><?=$listeMessages[0]['creation'];?></span> 
 
               </div>
                         </div>
@@ -94,7 +93,7 @@
             ?>
       </div>
       <h2>Répondre</h2>
-      <form action="message.php?id=<?=$_GET['id']?>" method="post">
+      <form id="reponse" action="message.php?id=<?=$_GET['id']?>" method="post">
          <textarea name="message" id="message" cols="30" rows="10"></textarea>
          <input type="submit">
       </form>

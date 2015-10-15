@@ -6,6 +6,7 @@
 
 html{
   animation: fadein ease-in 2s;
+  margin: 0;
 }
 
 
@@ -75,6 +76,29 @@ li,ul {
 ul{
   padding: 0;
 }
+button {
+    background: rgba(255, 255, 255, 0.5);
+    border: solid 1px #333333;
+    height: 30px;
+    width: 90px;
+    padding: 3px;
+
+}
+
+button>a{
+    color: #333333;
+    font: 16px 'Open Sans';
+ 
+}
+
+  input[type="text"],textarea,select{
+  margin-bottom: 5px;
+  padding: 5px;
+  font:16px 'Open Sans';
+  width: 100%;
+  border:solid 1px #ccc;
+}
+
 
 /* HEADER */
 
@@ -434,6 +458,11 @@ tr>td.date {
   position: relative;
 }
 
+.date_message{
+  position: absolute;
+  top:-25px;
+  right: 0;
+}
 
 .post{
    position: relative;
@@ -467,7 +496,49 @@ tr>td.date {
     text-align: left;
 
 }
+/* topic.php > Reponse >Avatar*/
 
+ .dd{
+  height: 50px;
+  width: 50px; 
+  overflow: hidden;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top:10px;
+  left: 10px;
+
+  float: left;
+}
+.dd>img{
+  height: 100%;
+  left: -28%;
+  position: absolute;
+
+}
+
+/* topic.php > Formulaire reponse */
+
+#reponse{
+  width: 800px;
+  margin: 0 auto;
+}
+
+#reponse>input[type=submit]{
+  line-height: 25px;
+  padding: 5px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 2px;
+  border: none;
+  color: #555;
+  background-color: #498BF4;
+  background: #4d90fe; /* Old browsers */
+  background: -moz-linear-gradient(top, #ffea00 0%, #ffd600 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4d90fe), color-stop(100%,#4787ed)); /* Chrome,Safari4+ */
+
+  width: 100px;
+}
 
 /* profil_page.php > MENU */
 
