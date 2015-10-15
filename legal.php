@@ -27,6 +27,45 @@
 	      <?php 
          include('includes/db.php');
          include("header.php"); ?>
+
+
+<h4>Identification Editeur : </h4>
+<p>Mathilde, Présidente</p>
+
+<p>PoleS - WebForce 3</p>
+<p>11, Allée saint exupery</p>
+<p>92390 Villeuneuve-La-Garenne</p>
+
+<h4>Contacts :</h4>
+<p>Tel: +33 1 47.92.75.25</p>
+<p>Fax: +33 1 47.92.88.67</p>
+
+<h4>SIREN :</h4> <p>411 659 675</p>
+
+<h4>SIRET :</h4> <p>411 659 675 00028</p>
+
+<h4>CAPITAL :</h4> <p>160 000 €</p>
+
+<h4>Directeur de la publication :</h4>
+<p>Thomas</p>
+
+<h4>Identification Hébergeur :</h4>
+
+<p> PoleS - WebForce 3</p>
+<p>11, Allée saint exupery</p>
+<p>92390 Villeuneuve-La-Garenne</p>
+
+
+Cédric SIRE, Président
+
+<h4>Vie privée et cookies</h4>
+
+<h4>Propriété Intellectuelle</h4>
+
+<h4>Conditions Générales</h4>
+
+
+
 </body>
 <?php include("footer.php"); ?>
 </html>

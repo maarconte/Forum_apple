@@ -27,6 +27,35 @@
 	      <?php 
          include('includes/db.php');
          include("header.php"); ?>
+
+
+<h4>Article 1 :</h4> <h5>Objet</h5>
+
+<h4>Article 2 :</h4> <h5>Acceptation des Conditions Générales</h5>
+
+<h4>Article 3 :</h4> <h5>Vie privée et cookies</h5>
+
+<h4>Article 4 :</h4> <h5>Utilisation des services</h5>
+
+<h4>Article 5 :</h4> <h5>Dispositions relatives à l’utilisation du service « Forums »</h5>
+
+<h4>Article 6 :</h4> <h5>Dispositions relatives à l’utilisation du service « Messagerie »</h5>
+
+<h4>Article 7 :</h4> <h5>Responsabilité</h5>
+
+<h4>Article 8 :</h4> <h5>Prix</h5>
+
+<h4>Article 9 :</h4> <h5>Propriété intellectuelle</h5>
+
+<h4>Article 10 :</h4> <h5>Durée</h5>
+
+<h4>Article 11 :</h4> <h5>Juridictions compétentes et droit applicable</h5>
+
+<h4>Article 12 :</h4> <h5>Dispositions diverses</h5>
+
+
+
+
 </body>
 <?php include("footer.php"); ?>
 </html>
