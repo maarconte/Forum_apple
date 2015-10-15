@@ -11,9 +11,7 @@
       <link rel="stylesheet" href="Hover-master/css/hover.css">
       <!--  CSS -->
       <link rel="stylesheet" type="text/css" href="css/normalize.css">
-      <link rel="stylesheet" type="text/css" href="css/accueil.css">
       <link rel="stylesheet" type="text/css" href="css/connect.css">
-      <link rel="stylesheet" type="text/css" href="css/topic.css">
       <!-- Font -->
        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
@@ -28,35 +26,22 @@
       <style>
          .liste{
          width: 800px;
-         margin: 0 auto;
+         margin: 0 auto ;
+         margin-top: 60px;
+         padding: 0;
+
          }
          .row{
          height: 200px;
          width: 150px;
          overflow: hidden;
-         margin: 0 auto 10px;
-         position: relative;
+         margin: 0 auto 10px; 
          background:#F7F7F7 ;
          float: left;
          margin-right: 10px;
          padding: 10px;
-         -webkit-box-sizing: border-box;
-         -moz-box-sizing: border-box;
-         box-sizing: border-box;
          }  
-         .hello{
-         position: absolute;
-         right: 10px;
-         top:10px;
-         text-align: right;
-         }
-         header{
-         margin-bottom: 30px;
-         }
-         a>h2{
-         color: #333333;
-         font: 16px 'Open Sans'; 
-         }
+
 
          
 
@@ -65,9 +50,11 @@
    <?php
       include('includes/db.php');
       ?>
-   <body>
+   <body> 
+   <?php  include("header_user_list.php");?>
+    <div class="liste">
       <?php 
-         include("header_user_list.php"); 
+          
          
          $forum= new Forum($pdo);
          $liste = $forum->selectUsers();
@@ -76,7 +63,7 @@
               
               for ($i = 0; $i < $ligne; $i++) {
          ?>
-      <div class="liste">
+    
          <div class="row">
             <?php
                   if (empty($liste[$i]['avatar'])) {
@@ -101,18 +88,14 @@
                   </a>
                  <?php } ?>
          </div>
-      </div>
+     
       <?php
          } ?>
+ </div>
+     
 
-      <script type="text/javascript">
-         $(function(){
-            $('#profil').click(function(e){
-               $('.profil_nav').toggle();
-                  e.stopPropagation();
-               });
-         });  
-      </script>
-<?php include("footer.php"); ?>  
+<?php include("footer.php"); ?> 
+
    </body>
+
 </html>
