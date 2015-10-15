@@ -5,8 +5,8 @@
 		<li><a href="legal.php">Mentions Legales</a></li>
 	</ul>
 <br>
-<p>php
-	CopyRight C(logo) 
+<p>
+	  	&copy; CopyRight
 </p>	
 
 
