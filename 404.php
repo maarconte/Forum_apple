@@ -33,5 +33,6 @@
     <h3>Saviez vous que...</h3><p>Les chercheurs, excédés d’aller sans cesse relancer le serveur défaillant installé dans le bureau n°404, aient attribué ce numéro d’erreur au défaut de connexion, en souvenir de cette pièce maudite.</p>
 	
 	<script type="text/javascript" src="js/img_random.js"></script>
+  <?php include("footer.php"); ?> 
 </body>
 </html>

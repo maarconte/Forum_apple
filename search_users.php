@@ -104,5 +104,6 @@
          </div>
       </div>
       <?php } die(); } ?>
+      <?php include("footer.php"); ?>  
    </body>
 </html>

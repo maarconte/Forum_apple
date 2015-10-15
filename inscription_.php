@@ -72,4 +72,5 @@ if($session){
 
 <a href="connection.html"> <button>Connection</button> </a>
 </body>
+<?php include("footer.php"); ?> 
 </html>
