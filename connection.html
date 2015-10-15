@@ -26,18 +26,52 @@
 </head>
 <style>
       html{background: #1F1002;}
+      .episodes_connect {
+    position: absolute;
+    top: 0;
+    color: yellow;
+    width: 100%;
+    z-index: 3;
+    height: 100px;
+}
+
+.episodes_connect h1{
+      line-height: 100px;
+      margin: 20px auto 20px;
+}
+.episodes_connect a {
+    font: 60px 'Pacifico', cursive;
+    color: #fff;
+}
+.episodes_connect a:before {
+    content: url('images/logo.png');
+    margin-right: 10px;
+    vertical-align: middle;
+    height: 98px;
+    width: 98px;
+} 
+
+#login{
+      color: #ccc;
+      margin: 0;
+      text-align: center;
+}
 </style>
 <script src="js/facebook_login.js"> </script>
 <body>
 
+ <div class="episodes_connect">
+               <h1 ><a href="accueil.php" >Episodes </a></h1>
+            </div>
 
-	<h1 id="login">Connexion</h1>
+	
 	
 
 	<div class="container_login">
 	<!--       <div class="pp_user">
             <img src="images/user.png" alt="user" style="left:inherit">
       </div>       -->
+      <p id="login">Connexion</p>
 <form id="formulaire_login"action="connection.php" method="post">
 
 <input type="text" name="email" placeholder="email"/>

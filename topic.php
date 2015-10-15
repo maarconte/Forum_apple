@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="fr">
+   <head>
 <?php 
          include('includes/db.php');
          include("header.php"); 
@@ -6,10 +9,7 @@
          $listeTopics = $forum->afficherTopic($_GET["id"]);
          $ligne   = count($listeTopics);
          
-?><!DOCTYPE html>
-<html lang="fr">
-   <head>
-
+?>
       <title><?=$listeTopics[0]['title']?> - Episodes</title>
       <!-- Slider header -->
       <link rel="stylesheet" href="cssslider_files/csss_engine1/style.css">
