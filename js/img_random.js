@@ -21,4 +21,4 @@ image[4] = 'lie.gif'
  	image_number = Math.floor(image_number/rand)
  	return(image[image_number])
  }
- document.write("<img src='" + imlocation + randomimage()+ "'>");
+ document.write("<img src='" + imlocation + randomimage()+ "' alt='Erreur 404'>");
