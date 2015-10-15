@@ -31,6 +31,7 @@
                ?>
     <h2>Erreur 404</h2>
     <p>Les chercheurs, excédés d’aller sans cesse relancer un serveur défaillant installé dans le bureau n°404, aient attribué ce numéro d’erreur au défaut de connexion, en souvenir de cette pièce maudite.</p>
-	<img src="images/giphy.gif">
+	<img src="">
+	<script type="text/javascript" src="js/img_random.js"></script>
 </body>
 </html>
