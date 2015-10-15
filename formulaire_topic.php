@@ -31,11 +31,11 @@
  include("header.php"); 
  ?>
 
-<div class="container" >
+<div class="container_formulaire_topic" >
 
 <h2>Topic</h2>
 
-<form action="insert_topic.php" method="post" >
+<form id="formulaire_topic"action="insert_topic.php" method="post" >
  <select name="categorie" >  
 
         <?php 

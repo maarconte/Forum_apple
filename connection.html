@@ -24,19 +24,21 @@
       <script type="text/javascript" src="js/modernizr.custom.78869.js"></script>
       <![endif]-->
 </head>
-
+<style>
+      html{background: #1F1002;}
+</style>
 <script src="js/facebook_login.js"> </script>
 <body>
 
 
-	<h1>Connexion</h1>
+	<h1 id="login">Connexion</h1>
 	
 
-	<div class="container">
-		<div class="pp_user">
-			<img src="images/user.png" alt="user" style="left:inherit">
-		</div>	
-<form action="connection.php" method="post">
+	<div class="container_login">
+	<!--       <div class="pp_user">
+            <img src="images/user.png" alt="user" style="left:inherit">
+      </div>       -->
+<form id="formulaire_login"action="connection.php" method="post">
 
 <input type="text" name="email" placeholder="email"/>
 <input type="password" name="password" placeholder="password" />
@@ -50,10 +52,10 @@
 </form>
 </div>
 
-<a href="inscription.html"> <button>Inscription</button> </a>
+<a href="inscription.html"> <button id="login_btn">Inscription</button> </a>
 
 
-
+<script type="text/javascript" src="js/img_random_connexion.js"></script>
 
 </body>
 </html>
