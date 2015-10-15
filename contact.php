@@ -29,7 +29,12 @@
          include("header.php"); ?>
 
     <form>
-    	<input type="text" name="Objet" placeholder="Objet"/>
+    	<select name="" placeholder="Choix">
+    		<option>Problème</option>
+    		<option>Publicité</option>
+    		<option>Contenu inaproprié</option>
+    		<option>Autre...</option>
+    	</select>
     	<input type="mail" name="mail" placeholder="mail"/>
     	<textarea name="contact" cols="30" rows="10"></textarea>
     	<input type="submit" />
