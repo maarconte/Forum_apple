@@ -122,9 +122,9 @@ header {
     position: relative;
 }
 .pp>img {
-    height: 100px;
+    height: 100%;
     left: -28%;
-    position: absolute;
+    
 }
 /* HEADER > CONTENTS */
 
@@ -732,6 +732,9 @@ footer{
    background-size: 40px;
    padding-bottom: 10px;
    clear: left;
+   position: static;
+   bottom: 0;
+
 
 }
 

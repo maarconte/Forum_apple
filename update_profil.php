@@ -93,22 +93,7 @@ include("header.php"); ?>
       } ?></ul>
 </div>
 
-            <script type="text/javascript">
-         $(function(){
-         
-            $('.icon').click(function(e){
-               $('.profil_nav').toggle(400);
-                  e.stopPropagation();
-               });
-         });
-         
-               $(function(e){
-                  $('#btn').click(function(){
-                     $('#menu').toggle(400);
-                  }); 
-               });
-         
-      </script>
+           
       <?php include("footer.php"); ?> 
  </body>
  </html>

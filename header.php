@@ -38,13 +38,35 @@
          <!-- End cssSlider.com -->
          <div class="header_content">
           <div class="hello">
-               <div class="pp icon">
+               
                   <?php 
                      $forum= new Forum($pdo);
                      $avatar = $forum->selectUser($_SESSION['users']['id']);
                      ?> 
-                  <img src="<?=$avatar['0']['avatar']?>" alt="user" >
-               </div>
+ <?php
+                  if (empty($avatar[0]['avatar'])) {
+                  ?>
+                     <div class="pp icon">
+                        <img src="../images/user.png" alt="user" style="left:inherit">
+                     </div>
+                     <a href="profil_page.php?id=<?= $avatar[$i]['id'] ?>">
+                       
+                     </a>
+               <?php
+              
+               } 
+
+
+           else { ?>
+                  <div class="pp icon ">
+                     <img src="<?= $avatar[0]['avatar'] ?>" alt="user">
+                  </div>
+                  <a href="profil_page.php?id=<?= $avatar[0]['id'] ?>">
+                     
+                  </a>
+                 <?php } ?>
+
+             
                <ul class="profil_nav" >
                   <li>Bonjour <?= $_SESSION['users']['pseudo']."  ";
                      ?></li>
@@ -83,3 +105,5 @@
       </script>
 <script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
 <script>tinymce.init({selector:'textarea'});</script>
+
+
