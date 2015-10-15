@@ -28,6 +28,8 @@
          include('includes/db.php');
          include("header.php"); ?>
 
+
+<div class="container">
     <form>
     	<select name="" required value="test">
     		<option>Problème</option>
@@ -39,10 +41,10 @@
       <input type="web" name="web" placeholder="Votre site web"/>
     	<textarea name="contact" cols="30" rows="10" required ></textarea>
     	<input type="submit" />
-
-
     </form>
-	
+    </div>
+<?php include("footer.php"); ?>	
+
 </body>
-<?php include("footer.php"); ?>
+
 </html>

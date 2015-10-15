@@ -65,7 +65,7 @@ Cédric SIRE, Président
 <h4>Conditions Générales</h4>
 
 
-
-</body>
 <?php include("footer.php"); ?>
+</body>
+
 </html>
