@@ -19,7 +19,6 @@
       <link rel="stylesheet" href="Hover-master/css/hover.css">
       <!--  CSS -->
       <link rel="stylesheet" type="text/css" href="css/normalize.css">
-      <link rel="stylesheet" type="text/css" href="css/accueil.css">
       <link rel="stylesheet" type="text/css" href="css/connect.css">
       <link rel="stylesheet" type="text/css" href="css/topic.css">
       <!-- Font -->
@@ -32,39 +31,6 @@
       <script type="text/javascript" src="js/modernizr.custom.78869.js"></script>
       <![endif]-->
 
-      <style>
-         
-         .date{
-         font-size: small;
-         color:#616161;
-         position: absolute;
-         margin: 0;
-         }
-
-        
-         
-         
-         .post{
-         position: relative;
-         }
-         h2{
-            display: block;
-            margin: 0 auto;
-            width: 980px;
-         }
-
-
-         #twitter-widget-0{
-            position: absolute;
-            top:0;
-         }
-         .fb_iframe_widget{
-            position: relative;
-         /* left: 980px;
-         top:0px; */
-}
-      
-      </style>
    </head>
 
    <body>
@@ -86,7 +52,7 @@
 
         
 
-         <span class="date creation"><?=$listeTopics[0]['creation'];?></span> 
+         <span class="creation"><?=$listeTopics[0]['creation'];?></span> 
       </div>
       <div class="post_first" >
          <p><?= $listeTopics[$i]['description'] ?></p>
@@ -136,5 +102,21 @@
          }?>
       <script src="js/facebook_login.js"> </script>
       <script src="js/like_FB.js"> </script>
+                  <script type="text/javascript">
+         $(function(){
+         
+            $('.icon').click(function(e){
+               $('.profil_nav').toggle(400);
+                  e.stopPropagation();
+               });
+         });
+         
+               $(function(e){
+                  $('#btn').click(function(){
+                     $('#menu').toggle(400);
+                  }); 
+               });
+         
+      </script>
    </body>
 </html>
