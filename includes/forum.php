@@ -346,11 +346,18 @@
    
        	return $request->fetchAll();
    			}
-       
+          function ajouterAvatar($name,$id){
+    $request=$this->pdo->prepare ('UPDATE users SET avatar= ("http://localhost/Forum_apple/images/avatars_users/":name) WHERE id= :id');
+    $request->execute([
+        ':name'=>$name,
+          ':id'=>$id
+          ]);
+      $this->pdo->query('');
    }
-   
-   
-   
+   }
+
+
+
    
    
    
