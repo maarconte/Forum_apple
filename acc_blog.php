@@ -52,7 +52,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">Episode le Blog</a>
+          <a clas s="brand" href="#">Episode le Blog</a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
               Connecté comme <a href="#" class="navbar-link"><?= $_SESSION['users']['pseudo']."  ";?></a>
