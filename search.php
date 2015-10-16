@@ -35,21 +35,7 @@
          
       </script>
    </head>
-   <body>
-      <?php 
-         include('includes/db.php');
-         include("header.php"); 
-         
-         
-         $forum= new Forum($pdo);
-         $searchTopic=$forum->searchTopics($_POST['search']);
-         $ligne=count($searchTopic); 
-         
-         
-         for ($i=0; $i <= $ligne ; $i++) { 
-         
-            if ($ligne>0) { ?>
-      <table>
+   <body>      <table>
          <thead>
             <tr>
                <th>Topics</th>
@@ -59,34 +45,62 @@
             </tr>
          </thead>
          <tbody>
+      <?php 
+         include('includes/db.php');
+         include("header.php"); 
+         
+         
+         $forum= new Forum($pdo);
+         $searchTopic=$forum->searchTopics($_POST['search']);
+         $result=$forum->top($searchTopic[0]['id']);
+         $ligne=count($searchTopic); 
+         
+         
+         for ($i=0; $i <= $ligne ; $i++) { 
+         
+            if ($ligne>0) { ?>
+
             <tr>
-               <td class="topic"><a href="topic.php?id=<?=$searchTopic[$i]['id']?>"><?=$searchTopic[$i]['title']?></a></td>
+            <?php ; ?>
+
+               <td class="topic"><a href="topic.php?id=<?=$searchTopic[$i]['id']?>"><?=$result[$i]['title']?></a></td>
                <td class="creatorId">
                   <a href="categories.php?id=<?=$searchTopic[$i]['categorieId']?>"> <?php 
-                     $categories = $forum->selectCategoriesTopics($searchTopic[$i]['categorieId']);
-                     echo $categories[0]['name'];
+                     
+                     echo $result[$i]['categorieId'];
                      ?>
                   </a>
                </td>
                <td class="creatorId"> 
-                  <?php 
-                     $creatorId = $forum->selectCreatorId($searchTopic[$i]['creatorId']);
-                     ?>
+
                   <a href="profil_page.php?id=<?=$searchTopic[$i]['creatorId']?>"><?php 
-                     echo $creatorId[0]['pseudo'];
+                     echo $result[$i]['creatorId'];
                      ?></a> 
                </td>
-               <td class="date"> <?=$searchTopic[$i]['creation']?></td>
-               <?php die(); ?>            
+               <td class="date"> <?=$result[$i]['creation']?></td>
+               <?php /*die();*/ ?>            
             </tr>
             <?php }
+
                else{ ?>
             <h2><?= "Pas de réponses  "."<i class='fa fa-exclamation-circle'></i>
                ";?></h2>
             <?php }
                }?>
+
+
          </tbody>
       </table>
-      <?php include("footer.php"); ?>  
+
+<?php        
+      $result_user=$forum->user($searchTopic[$i]['id']);
+      $ligne=count($result_user); 
+      for ($i=0; $i <=$ligne ; $i++) { 
+      echo $result_user[$i]['id'];
+      }
+?>
+
+ <?php
+      include("footer.php"); ?>  
    </body>
 </html>

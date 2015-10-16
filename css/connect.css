@@ -721,8 +721,19 @@ input[type="text"]:focus {
   z-index: 1;
 }
 
+/* 404 error*/
+.img_container{
+  width: 700px;
+  margin: 0 auto;
+}
 
+.img_container>img{
+  width: 100%;
+}
 
+#error{
+  font-size: 30px;
+}
 /* FOOTER */
 
 footer{

@@ -221,14 +221,32 @@
     // Search Topics
    
     	function searchTopics($search){
-    		$request=$this->pdo->prepare('SELECT * FROM topics WHERE title LIKE :search ORDER BY title;');
+    		$request=$this->pdo->prepare('SELECT id, "topic" as `table` FROM topics WHERE title LIKE :search UNION SELECT id, "user" as `table` FROM users WHERE pseudo LIKE :search');
        	$request->execute([
-       		':search'=> '%' . $search . '%'
+          ':search'=> '%' . $search . '%',
        		]);
-   
+        
+   print_r($request);
+   die();
        	return $request->fetchAll();
+
+       
     		}
-   
+
+
+        function top($id){
+        $request=$this->pdo->prepare('SELECT * FROM topics WHERE id= :id');
+        $request->execute([':id'=> $id]);
+        return $request->fetchAll();
+        }
+
+        function user($id){
+        $request=$this->pdo->prepare('SELECT * FROM users WHERE id= :id');
+        $request->execute([':id'=> $id]);
+        return $request->fetchAll();
+        }
+
+
     // Search Users
     	
     	function searchUsers($search){

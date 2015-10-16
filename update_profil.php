@@ -52,6 +52,17 @@ include("header.php"); ?>
                <?php } ?>
 
     <h2><?=$result[0]['pseudo']?></h2>
+
+     <form enctype="multipart/form-data" action="upload.php" method="post">
+  <!-- MAX_FILE_SIZE doit précéder le champ input de type file -->
+  <input type="hidden" name="MAX_FILE_SIZE" value="300000" />
+  <!-- Le nom de l'élément input détermine le nom dans le tableau $_FILES -->
+  Choisir une photo de profil : <input name="userfile" type="file" /> 
+
+  <input type="submit" value="Envoyer le fichier" />
+
+</form>
+
      <form action="insert_avatar.php?id=<?=$_GET['id']?>" method="post"> <label for="avatar">Avatar</label><input type="text" name="avatar" placeholder="url image" />
        <input type="submit" value="Upload" /> 
      </form></br>
